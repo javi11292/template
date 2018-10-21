@@ -1,0 +1,10 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "babel": "babel src -d build --presets env --ignore node_modules --copy-files",
+    "deploy": "npm run babel && cd build && npm run commit && cd ..",
+    "commit": "cd src && npm run commit && cd .."
+  }
+}
