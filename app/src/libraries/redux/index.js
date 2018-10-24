@@ -3,15 +3,15 @@ import { connect } from "react-redux"
 import { dispatch } from "./store"
 import { reset } from "./actions"
 
-const addAction = state => (acc, action) => {
-    acc[action] = ACTIONS[action](state)
+const addCall = state => (acc, call) => {
+    acc[call] = Redux[call](state)
     return acc
 }
 
 class Redux {
 
-    static connect = (...actions) => {
-        const state = state => actions.reduce(addAction(state), {})
+    static connect = (...calls) => {
+        const state = state => calls.reduce(addCall(state), {})
         return connect(state)
     }
 
@@ -21,9 +21,9 @@ class Redux {
 
 }
 
-const ACTIONS = {
-    reset: Redux.reset
+const MAP = {
+    reset: "reset"
 }
 
-export ACTIONS
+export MAP
 export default Redux
