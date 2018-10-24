@@ -22,8 +22,8 @@ class Redux {
 }
 
 const MAP = {
-    
+
 }
 
-export MAP
+export { MAP }
 export default Redux
