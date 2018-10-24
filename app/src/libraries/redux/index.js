@@ -26,5 +26,4 @@ const actions = {
 }
 
 export actions
-
 export default Redux
