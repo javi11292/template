@@ -10,15 +10,19 @@ const addCall = state => (acc, call) => {
 
 class Redux {
 
-    static connect(...calls) {
+    static connect = (...calls) => {
         const state = state => calls.reduce(addCall(state), {})
         return connect(state)
     }
 
-    static reset() {
+    static reset = () => {
         dispatch(reset())
     }
 
+}
+
+const actions = {
+    reset: Redux.reset
 }
 
 export default Redux
