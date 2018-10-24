@@ -25,4 +25,6 @@ const actions = {
     reset: Redux.reset
 }
 
+export actions
+
 export default Redux
