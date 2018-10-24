@@ -4,7 +4,7 @@ import { dispatch } from "./store"
 import { reset } from "./actions"
 
 const addAction = state => (acc, action) => {
-    acc[action] = actions[action](state)
+    acc[action] = ACTIONS[action](state)
     return acc
 }
 
@@ -21,9 +21,9 @@ class Redux {
 
 }
 
-const actions = {
+const ACTIONS = {
     reset: Redux.reset
 }
 
-export actions
+export ACTIONS
 export default Redux
