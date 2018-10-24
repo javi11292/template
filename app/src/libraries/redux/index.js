@@ -22,7 +22,7 @@ class Redux {
 }
 
 const MAP = {
-    reset: "reset"
+    
 }
 
 export MAP
