@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 
 class App extends PureComponent {
 
-  render() {
-    return null
-  }
+  render = () => (
+    null
+  )
 
 }
 
