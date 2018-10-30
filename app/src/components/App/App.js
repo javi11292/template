@@ -1,9 +1,14 @@
 import React, { PureComponent } from 'react'
+import { withStyles } from "@material-ui/core"
+
+import styles from "./styles"
 
 class App extends PureComponent {
     render = () => (
-        null
+        <div className={this.props.classes.body} >
+
+        </div>
     )
 }
 
-export default App
+export default withStyles(styles)(App)
