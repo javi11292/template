@@ -3,8 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "node build/index",
     "build": "babel src -d build --presets env --ignore node_modules --copy-files",
-    "deploy": "npm run build && cd build && npm run commit && cd ..",
-    "commit": "cd src && npm run commit && cd .."
+    "deploy": "npm run build && npm run commit",
+    "commit": "git add -A && git commit -m update && git push heroku master"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.1.1"
   }
 }
