@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node build/index",
+    "test": "npm run build && npm start",
     "build": "babel src -d build --presets env --ignore node_modules --copy-files",
     "deploy": "npm run build && npm run commit",
     "commit": "git add -A && git commit -m update && git push heroku master"
