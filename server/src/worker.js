@@ -6,10 +6,8 @@ const app = express()
 
 const onReady = () => console.log(`Worker ${process.pid} listening on port ${PORT}`)
 
-class Worker {
-    static start = () => {
-        app.listen(PORT, onReady)
-    }
+const start = () => {
+    app.listen(PORT, onReady)
 }
 
-export default Worker
+export { start }

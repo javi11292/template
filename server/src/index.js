@@ -5,7 +5,7 @@ process.on("unhandledRejection", error => { throw error })
 
 const start = async (name) => {
     const module = await import(`./${name}`)
-    module.default.start()
+    module.start()
 }
 
 if (cluster.isMaster) {
