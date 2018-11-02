@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "babel src -d build --presets env --ignore node_modules --copy-files",
+    "build": "babel src -d build --ignore node_modules --copy-files",
     "commit": "git add -A && git commit -m update && git push heroku master",
     "deploy": "npm run build && npm run commit",
     "start": "node build/index",
