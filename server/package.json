@@ -3,16 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node build/index",
-    "test": "npm run build && npm start",
     "build": "babel src -d build --presets env --ignore node_modules --copy-files",
+    "commit": "git add -A && git commit -m update && git push heroku master",
     "deploy": "npm run build && npm run commit",
-    "commit": "git add -A && git commit -m update && git push heroku master"
+    "start": "node build/index",
+    "test": "npm run build && npm start"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.7.0"
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-plugin-dynamic-import-node": "^2.2.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "express": "^4.16.4",
     "socket.io": "^2.1.1"
   }

@@ -1,8 +1,15 @@
-import express from "express"
-import io from "socket.io"
+import "@babel/polyfill"
+import cluster from "cluster"
 
-const PORT = process.env.PORT || 3000
+process.on("unhandledRejection", error => { throw error })
 
-const app = express()
+const start = async (name) => {
+    const module = await import(`./${name}`)
+    module.default.start()
+}
 
-const server = io(app.listen(PORT))
+if (cluster.isMaster) {
+    start("master")
+} else {
+    start("worker")
+}

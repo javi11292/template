@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
     "commit": "git add -A && git commit -m update && git push origin master",
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "start": "react-scripts start"
   },
   "dependencies": {
     "@material-ui/core": "^3.3.2",
