@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { CssBaseline } from "@material-ui/core"
 
 import Store from "components/Store"
 import App from "./App"
 
-class AppContainer extends PureComponent {
+class AppContainer extends React.PureComponent {
     render = () => (
         <Store>
             <CssBaseline />
