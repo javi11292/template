@@ -4,13 +4,10 @@ import { CssBaseline } from "@material-ui/core"
 import Store from "components/Store"
 import Main from "./Main"
 
-class App extends React.PureComponent {
+class MainContainer extends React.PureComponent {
     render = () => (
-        <Store>
-            <CssBaseline />
-            <Main />
-        </Store>
+        <Main />
     )
 }
 
-export default App
+export default MainContainer
