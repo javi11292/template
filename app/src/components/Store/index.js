@@ -1,5 +1,7 @@
 import React from "react"
 
+import Action from "./Action"
+
 const store = React.createContext()
 const Provider = store.Provider
 const Consumer = store.Consumer
@@ -15,6 +17,8 @@ class Store extends React.PureComponent {
     state = {
 
     }
+
+    updateState = call => data => this.setState(call(data))
 
     render = () => (
         <Provider value={this.state}>
