@@ -2,7 +2,7 @@ import React from 'react'
 import { CssBaseline } from "@material-ui/core"
 
 import Store from "components/Store"
-import Main from "./Main"
+import Main from "components/Main"
 
 class App extends React.PureComponent {
     render = () => (

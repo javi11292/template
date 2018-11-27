@@ -2,9 +2,27 @@ import React from "react"
 
 import Action from "./Action"
 
-const store = React.createContext()
-const Provider = store.Provider
-const Consumer = store.Consumer
+let store = null
+
+const addContext = (acc, key) => ({ ...acc, [key]: React.createContext() })
+
+const addProvider = (Acc, key) => {
+    const { Provider } = store[key]
+    return ({ state, component }) => <Provider value={state[key]}>{Acc ? <Acc state={state} component={component} /> : component}</Provider>
+}
+
+const addConsumer = (Acc, key) => {
+    const { Consumer } = store[key]
+    return props => (
+        <Consumer>
+            {context => <Acc {...props} {...{ [key]: context }} />}
+        </Consumer>
+    )
+}
+
+const createProvider = () => Object.keys(store).reduce(addProvider, null) || (({ component }) => component)
+
+const createConsumer = ({ keys, Component }) => keys.reduce(addConsumer, Component)
 
 const state = {
 
@@ -14,33 +32,35 @@ const actions = {
 }
 
 class Store extends React.PureComponent {
-    state = {
+    constructor(props) {
+        super(props)
+        this.state = {
 
+        }
+
+        store = Object.keys(this.state).reduce(addContext, {})
+
+        this.provider = createProvider()
     }
 
     updateState = call => data => this.setState(call(data))
 
-    render = () => (
-        <Provider value={this.state}>
-            {this.props.children}
-        </Provider>
-    )
+    render = () => {
+        const Provider = this.provider
+        return <Provider state={this.state} component={this.props.children} />
+    }
 }
 
 const connect = (...keys) => Component => (
     class extends React.PureComponent {
-        render = () => (
-            <Consumer>
-                {context => {
-                    const props = keys.reduce(addKeys(context), {})
-                    return <Component {...this.props} {...props} />
-                }}
-            </Consumer>
-        )
+        consumer = createConsumer({ keys, Component })
+
+        render = () => {
+            const Consumer = this.consumer
+            return <Consumer {...this.props} />
+        }
     }
 )
-
-const addKeys = context => (acc, key) => ({ ...acc, [key]: context[key] })
 
 export { connect, state, actions }
 export default Store
