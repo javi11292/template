@@ -4,29 +4,10 @@ import Action from "./Action"
 
 let store = null
 
-const addContext = (acc, key) => ({ ...acc, [key]: React.createContext() })
-
-const addProvider = (Acc, key) => {
-    const { Provider } = store[key]
-    return ({ state, component }) => <Provider value={state[key]}>{Acc ? <Acc state={state} component={component} /> : component}</Provider>
-}
-
-const addConsumer = (Acc, key) => {
-    const { Consumer } = store[key]
-    return props => (
-        <Consumer>
-            {context => <Acc {...props} {...{ [key]: context }} />}
-        </Consumer>
-    )
-}
-
-const createProvider = () => Object.keys(store).reduce(addProvider, null) || (({ component }) => component)
-
-const createConsumer = ({ keys, Component }) => keys.reduce(addConsumer, Component)
-
 const state = {
 
 }
+
 const actions = {
 
 }
@@ -61,6 +42,26 @@ const connect = (...keys) => Component => (
         }
     }
 )
+
+const addContext = (acc, key) => ({ ...acc, [key]: React.createContext() })
+
+const addProvider = (Acc, key) => {
+    const { Provider } = store[key]
+    return ({ state, component }) => <Provider value={state[key]}>{Acc ? <Acc state={state} component={component} /> : component}</Provider>
+}
+
+const addConsumer = (Acc, key) => {
+    const { Consumer } = store[key]
+    return props => (
+        <Consumer>
+            {context => <Acc {...props} {...{ [key]: context }} />}
+        </Consumer>
+    )
+}
+
+const createProvider = () => Object.keys(store).reduce(addProvider, null) || (({ component }) => component)
+
+const createConsumer = ({ keys, Component }) => keys.reduce(addConsumer, Component)
 
 export { connect, state, actions }
 export default Store
