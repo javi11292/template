@@ -1,15 +1,9 @@
-import "@babel/polyfill"
-import cluster from "cluster"
+"use strict"
 
-process.on("unhandledRejection", error => { throw error })
+const express = require("express")
 
-const start = async (name) => {
-    const module = await import(`./${name}`)
-    module.start()
-}
+const PORT = process.env.PORT || 80
+const app = express()
+const onReady = () => console.log(`Listening on port ${PORT}`)
 
-if (cluster.isMaster) {
-    start("master")
-} else {
-    start("worker")
-}
+app.listen(PORT, onReady)

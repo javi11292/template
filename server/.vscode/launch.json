@@ -7,13 +7,8 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch Node",
             "program": "${workspaceFolder}\\src\\index",
-            "cwd": "${workspaceRoot}",
-            "preLaunchTask": "build",
-            "outFiles": [
-                "${workspaceRoot}/build/**.js"
-            ]
         }
     ]
 }

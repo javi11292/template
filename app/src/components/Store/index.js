@@ -2,7 +2,7 @@ import React from "react"
 
 import Action from "./Action"
 
-let store = null
+let store
 
 const state = {
 
