@@ -2,7 +2,7 @@
 
 const express = require("express")
 
-const router = require("./router")
+const router = require("./src/router")
 
 const PORT = process.env.PORT || 80
 const app = express()
