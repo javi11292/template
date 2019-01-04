@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-        name: 'server',
+        name: process.env.npm_package_name,
         script: 'index.js',
         instances: "max",
         env: {
