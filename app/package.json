@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "react-scripts build",
-    "commit": "git add -A && git commit -m update && git push origin master",
+    "commit": "git add -A && git commit -m update",
+    "push": "npm run commit && git push origin master",
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
     "start": "react-scripts start"
