@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "commit": "git add -A && git commit -m update",
+    "commit": "git add -A && git commit -m update || exit 0",
     "push": "npm run commit && git push origin master"
   }
 }
