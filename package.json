@@ -1,9 +1,10 @@
 {
-  "name": "template",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "commit": "git add -A && git commit -m update || exit 0",
-    "push": "npm run commit && git push origin master"
-  }
+    "name": "template",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "commit": "git add -A && git commit -m",
+        "push": "npm run commit --",
+        "postpush": "git push origin master"
+    }
 }

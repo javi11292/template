@@ -1,31 +1,32 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build": "react-scripts build",
-    "commit": "git add -A && git commit -m update || exit 0",
-    "push": "npm run commit && git push origin master",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build",
-    "start": "react-scripts start"
-  },
-  "dependencies": {
-    "@material-ui/core": "^3.3.2",
-    "@material-ui/icons": "^3.0.1",
-    "gh-pages": "^2.0.1",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-scripts": "2.0.5"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "homepage": "https://javi11292.github.io/"
+    "name": "app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "commit": "git add -A && git commit -m",
+        "push": "npm run commit --",
+        "postpush": "git push origin master",
+        "build": "react-scripts build",
+        "deploy": "gh-pages -d build",
+        "predeploy": "npm run build",
+        "start": "react-scripts start"
+    },
+    "dependencies": {
+        "@material-ui/core": "^3.3.2",
+        "@material-ui/icons": "^3.0.1",
+        "gh-pages": "^2.0.1",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2",
+        "react-scripts": "2.0.5"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "homepage": "https://javi11292.github.io/"
 }
