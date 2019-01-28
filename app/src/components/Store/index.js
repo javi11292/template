@@ -2,7 +2,7 @@ import React from "react"
 
 import Action from "./Action"
 
-let store
+let store = null
 
 const state = {
 
@@ -32,25 +32,29 @@ class Store extends React.PureComponent {
     }
 }
 
-const connect = (...keys) => Component => (
-    class extends React.PureComponent {
-        consumer = createConsumer({ keys, Component })
+function connect(...keys) {
+    return Component => (
+        class extends React.PureComponent {
+            consumer = createConsumer({ keys, Component })
 
-        render = () => {
-            const Consumer = this.consumer
-            return <Consumer {...this.props} />
+            render = () => {
+                const Consumer = this.consumer
+                return <Consumer {...this.props} />
+            }
         }
-    }
-)
+    )
+}
 
-const addContext = (acc, key) => ({ ...acc, [key]: React.createContext() })
+function addContext(acc, key) {
+    return { ...acc, [key]: React.createContext() }
+}
 
-const addProvider = (Acc, key) => {
+function addProvider(Acc, key) {
     const { Provider } = store[key]
     return ({ state, component }) => <Provider value={state[key]}>{Acc ? <Acc state={state} component={component} /> : component}</Provider>
 }
 
-const addConsumer = (Acc, key) => {
+function addConsumer(Acc, key) {
     const { Consumer } = store[key]
     return props => (
         <Consumer>
@@ -59,9 +63,13 @@ const addConsumer = (Acc, key) => {
     )
 }
 
-const createProvider = () => Object.keys(store).reduce(addProvider, null) || (({ component }) => component)
+function createProvider() {
+    return Object.keys(store).reduce(addProvider, null) || (({ component }) => component)
+}
 
-const createConsumer = ({ keys, Component }) => keys.reduce(addConsumer, Component)
+function createConsumer({ keys, Component }) {
+    return keys.reduce(addConsumer, Component)
+}
 
 export { connect, state, actions }
 export default Store
