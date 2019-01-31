@@ -4,9 +4,8 @@
     "private": true,
     "scripts": {
         "commit": "git add -A && git commit -m",
-        "push": "git push -u heroku master",
-        "upload": "npm run commit --",
-        "postupload": "npm run push",
+        "push": "npm run commit --",
+        "postpush": "git push",
         "start": "pm2 start ecosystem.config.js --env production",
         "test": "pm2 start ecosystem.config.js --watch"
     },

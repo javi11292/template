@@ -4,8 +4,7 @@
     "private": true,
     "scripts": {
         "commit": "git add -A && git commit -m",
-        "push": "git push -u origin master",
-        "upload": "npm run commit --",
-        "postupload": "npm run push"
+        "push": "npm run commit --",
+        "postpush": "git push"
     }
 }
