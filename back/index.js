@@ -1,7 +1,6 @@
 "use strict"
 
 const express = require("express")
-
 const router = require("./src/router")
 
 const PORT = process.env.PORT || 80

@@ -5,10 +5,11 @@ module.exports = {
         "log_date_format" : "DD/MM/YY HH:mm:ss",
         instances: "max",
         env: {
-            NODE_ENV: 'development'
+            NODE_ENV: 'development',
         },
         env_production: {
-            NODE_ENV: 'production'
-        }
+            NODE_ENV: 'production',
+        },
+        vizion: false,
     }],
 }
