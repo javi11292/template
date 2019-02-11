@@ -1,8 +1,5 @@
-import { createContext } from "react"
-
-const context = {
+const store = {
     example: {
-        context: createContext(),
         state: null,
         actions: setState => ({
             setExample: value => setState(state => value),
@@ -10,4 +7,4 @@ const context = {
     }
 }
 
-export default context
+export default store

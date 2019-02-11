@@ -1,14 +1,20 @@
-import React, { useState, useRef } from "react"
-import context from "./context"
+import React, { createContext, useState, useRef } from "react"
+import store from "./store"
 
-const Providers = Object.entries(context).reduce(addProviders, null) || (({ component }) => component)
+const contexts = Object.keys(store).reduce(addContexts, {})
+const Providers = Object.entries(store).reduce(addProviders, null) || (({ component }) => component)
 
 const Store = props => <Providers component={props.children} />
 
-function addProviders(Acc, [key, { context: { Provider } }]) {
+function addContexts(acc, key) {
+    return { ...acc, [key]: createContext() }
+}
+
+function addProviders(Acc, [key, entry]) {
+    const Provider = contexts[key].Provider
     return ({ component }) => {
-        const [state, setState] = useState(context[key].state)
-        const actions = useRef(context[key].actions(setState))
+        const [state, setState] = useState(entry.state)
+        const actions = useRef(entry.actions(setState))
         return <Provider value={{ [key]: state, ...actions.current }}>{Acc ? <Acc component={component} /> : component}</Provider>
     }
 }
