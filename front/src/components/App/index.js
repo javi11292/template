@@ -1,13 +1,15 @@
 import React from "react"
-import { CssBaseline } from "@material-ui/core"
+import { withStyles, CssBaseline } from "@material-ui/core"
 import Store from "components/Store"
-import App from "./App"
+import styles from "./styles"
 
-const AppContainer = () => (
+const App = props => (
     <Store>
         <CssBaseline />
-        <App />
+        <div className={props.classes.body}>
+
+        </div>
     </Store>
 )
 
-export default AppContainer
+export default withStyles(styles)(App)
