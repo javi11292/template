@@ -4,7 +4,7 @@ const store = {
         actions: setState => ({
             setExample: value => setState(state => value),
         }),
-    }
+    },
 }
 
 export default store

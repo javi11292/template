@@ -16,11 +16,11 @@ function addContexts(acc, key) {
 
 function addProviders(Acc, [key, entry]) {
     const Provider = contexts.providers[key]
-    return ({ component }) => {
+    return React.memo(({ component }) => {
         const [state, setState] = useState(entry.state)
         const actions = useRef(entry.actions(setState))
         return <Provider value={{ [key]: state, ...actions.current }}>{Acc ? <Acc component={component} /> : component}</Provider>
-    }
+    })
 }
 
 export default Store
