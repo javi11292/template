@@ -19,7 +19,7 @@ function addProviders(Acc, [key, entry]) {
     return ({ component }) => {
         const [state, setState] = useState(entry.state)
         const actions = useRef(entry.actions(setState))
-        return <Provider value={{ state, ...actions.current }}>{Acc ? <Acc component={component} /> : component}</Provider>
+        return <Provider value={{ [key]: state, ...actions.current }}>{Acc ? <Acc component={component} /> : component}</Provider>
     }
 }
 
