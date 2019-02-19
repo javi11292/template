@@ -19,7 +19,8 @@ function addProviders(Acc, [key, entry]) {
     return React.memo(({ component }) => {
         const [state, setState] = useState(entry.state)
         const actions = useRef(entry.actions(setState))
-        return <Provider value={{ [key]: state, ...actions.current }}>{Acc ? <Acc component={component} /> : component}</Provider>
+        const props = key === "reset" ? { key: state, value: { ...actions.current } } : { value: { [key]: state, ...actions.current } }
+        return <Provider {...props}>{Acc ? <Acc component={component} /> : component}</Provider>
     })
 }
 

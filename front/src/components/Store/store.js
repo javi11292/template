@@ -1,8 +1,8 @@
 const store = {
-    example: {
-        state: null,
+    reset: {
+        state: Date.now(),
         actions: setState => ({
-            setExample: value => setState(state => value),
+            reset: () => setState(Date.now()),
         }),
     },
 }
