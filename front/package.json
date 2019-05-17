@@ -2,9 +2,6 @@
     "name": "front",
     "version": "0.1.0",
     "scripts": {
-        "commit": "git add -A && git commit -m",
-        "push": "npm run commit --",
-        "postpush": "git push",
         "deploy": "gh-pages -d build",
         "predeploy": "npm run build",
         "build": "react-scripts build",
@@ -13,6 +10,7 @@
     "dependencies": {
         "@material-ui/core": "^3.9.3",
         "@material-ui/icons": "^3.0.2",
+        "eztore": "^1.0.0",
         "gh-pages": "^2.0.1",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
