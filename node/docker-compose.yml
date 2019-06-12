@@ -1,0 +1,11 @@
+version: "3"
+services:
+  node:
+    container_name: "node"
+    build: .
+    image: node
+    ports:
+      - "80"
+    volumes:
+      - ".:/code"
+    restart: always

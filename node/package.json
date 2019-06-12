@@ -1,0 +1,11 @@
+{
+    "name": "node",
+    "version": "0.1.0",
+    "scripts": {
+        "start": "docker-compose up"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "pm2": "^3.5.1"
+    }
+}
