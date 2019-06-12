@@ -8,6 +8,6 @@ RUN npm i -g pm2
 
 WORKDIR /code
 
-CMD pm2 start --watch && pm2 log
+CMD pm2-runtime start
 
 EXPOSE 80
