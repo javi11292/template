@@ -9,7 +9,7 @@ const App = props => {
     return (
         <Store reducers={reducers}>
             <CssBaseline />
-            <div className={classes.body}>
+            <div className={classes.root}>
 
             </div>
         </Store>

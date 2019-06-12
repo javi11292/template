@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core"
 
 export default makeStyles(theme => ({
-    body: {
+    root: {
         ...theme.typography.body1,
         position: "absolute",
         height: "100%",
