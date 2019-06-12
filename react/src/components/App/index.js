@@ -1,16 +1,19 @@
 import React from "react"
-import { withStyles, CssBaseline } from "@material-ui/core"
+import { CssBaseline } from "@material-ui/core"
 import { Store } from "eztore"
 import reducers from "reducers"
-import styles from "./styles"
+import useStyles from "./useStyles"
 
-const App = props => (
-    <Store reducers={reducers}>
-        <CssBaseline />
-        <div className={props.classes.body}>
+const App = props => {
+    const classes = useStyles(props)
+    return (
+        <Store reducers={reducers}>
+            <CssBaseline />
+            <div className={classes.body}>
 
-        </div>
-    </Store>
-)
+            </div>
+        </Store>
+    )
+}
 
-export default withStyles(styles)(App)
+export default App
