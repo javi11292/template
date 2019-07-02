@@ -2,6 +2,7 @@
     "name": "node",
     "version": "0.1.0",
     "scripts": {
+        "postversion": "git push --tags",
         "start": "docker-compose up"
     },
     "dependencies": {
