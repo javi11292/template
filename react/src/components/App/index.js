@@ -6,6 +6,7 @@ import useStyles from "./useStyles"
 
 const App = props => {
     const classes = useStyles(props)
+    
     return (
         <Store reducers={reducers}>
             <CssBaseline />
