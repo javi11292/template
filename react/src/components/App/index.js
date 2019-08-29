@@ -1,11 +1,17 @@
 import React from "react"
-import { CssBaseline } from "@material-ui/core"
+import { createMuiTheme, MuiThemeProvider, CssBaseline } from "@material-ui/core"
 import { Store } from "eztore"
 import reducers from "reducers"
 
+const theme = createMuiTheme({
+    spacing: factor => `${0.5 * factor}rem`,
+})
+
 const App = () => (
     <Store reducers={reducers}>
-        <CssBaseline />
+        <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+        </MuiThemeProvider>
     </Store>
 )
 
