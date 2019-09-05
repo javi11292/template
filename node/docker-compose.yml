@@ -5,7 +5,7 @@ services:
     build: .
     image: node
     ports:
-      - "3000"
+      - "80"
     volumes:
       - ".:/code"
     restart: always
