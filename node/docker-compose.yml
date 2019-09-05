@@ -1,9 +1,8 @@
 version: "3"
 services:
-  node:
-    container_name: node
+  web:
     build: .
-    image: node
+    container_name: web
     ports:
       - "80"
     volumes:
