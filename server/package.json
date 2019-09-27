@@ -2,6 +2,7 @@
     "name": "server",
     "version": "0.1.0",
     "scripts": {
+        "deploy": "node deploy",
         "start": "docker-compose up"
     },
     "dependencies": {
