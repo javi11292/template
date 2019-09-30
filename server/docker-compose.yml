@@ -3,6 +3,8 @@ services:
   web:
     build: .
     container_name: web
+    environment:
+      - ENV=${ENV:-production}
     ports:
       - "80"
     volumes:

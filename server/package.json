@@ -3,8 +3,9 @@
     "version": "0.1.0",
     "scripts": {
         "deploy": "node deploy",
-        "pm2": "pm2-runtime start ecosystem.config.js",
-        "start": "docker-compose up"
+        "start": "docker-compose up",
+        "start:development": "pm2-dev start ecosystem.config.js",
+        "start:production": "pm2-runtime start ecosystem.config.js"
     },
     "dependencies": {
         "dotenv": "^8.1.0",
