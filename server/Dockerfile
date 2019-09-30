@@ -7,6 +7,6 @@ RUN npm i -g pm2
 ADD . /code
 WORKDIR /code
 
-ENV ENV production
+ENV NODE_ENV production
 
-CMD npm run start:${ENV}
+CMD npm run start:${NODE_ENV}
