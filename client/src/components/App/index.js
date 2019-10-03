@@ -26,14 +26,14 @@ const App = () => {
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
                 <Dialog onClose={handleClose} open={!!update}>
-                    <DialogTitle>Nuevo contenido disponible</DialogTitle>
+                    <DialogTitle>Nueva versión disponible</DialogTitle>
 
                     <DialogContent>
-                        <DialogContentText>Pulsa "Actualizar" para obtener la última versión</DialogContentText>
+                        <DialogContentText>Pulsa "Actualizar" para aplicar los cambios</DialogContentText>
                     </DialogContent>
 
                     <DialogActions>
-                        <Button onClick={handleClose(false)} color="secondary">Descartar</Button>
+                        <Button onClick={handleClose(false)} color="secondary">Cancelar</Button>
                         <Button onClick={handleClose(true)} color="primary">Actualizar</Button>
                     </DialogActions>
                 </Dialog>
