@@ -18,7 +18,7 @@ const theme = createMuiTheme({
     spacing: factor => `${0.5 * factor}rem`,
 })
 
-const App = () => {
+function App() {
     const { update, handleClose } = useLogic()
 
     return (
