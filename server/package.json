@@ -1,15 +1,15 @@
 {
-    "name": "server",
-    "version": "0.1.0",
-    "scripts": {
-        "deploy": "node deploy",
-        "start": "docker-compose up",
-        "start:development": "pm2-dev start ecosystem.config.js",
-        "start:production": "pm2-runtime start ecosystem.config.js"
-    },
-    "dependencies": {
-        "dotenv": "^8.1.0",
-        "express": "^4.17.0",
-        "pm2": "^3.5.0"
-    }
+  "name": "server",
+  "version": "0.1.0",
+  "scripts": {
+    "deploy": "node deploy",
+    "start": "docker-compose up",
+    "start:development": "pm2-dev start ecosystem.config.js",
+    "start:production": "pm2-runtime start ecosystem.config.js"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.0",
+    "pm2": "^3.5.0"
+  }
 }

@@ -7,7 +7,7 @@ const PORT = process.env.PORT
 const app = express()
 
 function onReady() {
-    console.log(`Listening on port ${PORT}`)
+  console.log(`Listening on port ${PORT}`)
 }
 
 app.use(router)

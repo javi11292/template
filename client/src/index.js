@@ -6,7 +6,7 @@ import * as serviceWorker from "serviceWorker"
 ReactDOM.render(<App />, document.getElementById("root"))
 
 function onUpdate(registration) {
-    window.dispatchEvent(new CustomEvent("update", { detail: registration.waiting }))
+  window.dispatchEvent(new CustomEvent("update", { detail: registration.waiting }))
 }
 
 serviceWorker.register({ onUpdate })
