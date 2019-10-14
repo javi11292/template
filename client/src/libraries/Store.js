@@ -41,7 +41,7 @@ function getStore(store) {
       }
     }, [key])
 
-    return [store.state[key], update]
+    return [subscribe ? store.state[key] : undefined, update]
   }
 }
 
