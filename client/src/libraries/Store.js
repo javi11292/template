@@ -24,14 +24,14 @@ class Store {
 }
 
 function getStore(store) {
-  return (key, onlyAction) => {
+  return (key, subscribe = true) => {
     const [, forceUpdate] = useReducer(state => !state, false)
 
     useEffect(() => {
-      if (onlyAction) return
+      if (!subscribe) return
       store.addListener(key, forceUpdate)
       return () => store.removeListener(key, forceUpdate)
-    }, [key, onlyAction])
+    }, [key, subscribe])
 
     const update = useCallback(value => {
       if (typeof value === "function") {
@@ -41,7 +41,7 @@ function getStore(store) {
       }
     }, [key])
 
-    return onlyAction ? update : [store.state[key], update]
+    return [store.state[key], update]
   }
 }
 
