@@ -1,5 +1,3 @@
-"use strict"
-
 const { spawnSync } = require("child_process")
 
 const name = process.env.npm_package_name
