@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "private": true,
   "scripts": {
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
