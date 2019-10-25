@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "deploy": "node deploy",
+    "deploy": "node scripts/deploy",
     "start": "docker-compose up",
     "start:development": "pm2-dev start ecosystem.config.js",
     "start:production": "pm2-runtime start ecosystem.config.js"
