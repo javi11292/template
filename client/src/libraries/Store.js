@@ -2,7 +2,7 @@ import { useReducer, useEffect, useCallback } from "react"
 
 class Store {
   constructor(state) {
-    this.state = {}
+    this.state = state
     this.listeners = {}
   }
 
