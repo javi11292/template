@@ -4,9 +4,9 @@ services:
     build: .
     container_name: web
     environment:
-      - NODE_ENV=${NODE_ENV:-production}
+      - NODE_ENV
     ports:
-      - "80"
+      - "${PORT}:${PORT}"
     volumes:
       - ".:/code"
     restart: always
