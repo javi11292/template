@@ -1,7 +1,3 @@
-import Store, { getStore } from "libraries/Store"
+import getStore from "libraries/store"
 
-const state = {}
-
-const store = new Store(state)
-
-export default getStore(store)
+export default getStore({})
