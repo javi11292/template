@@ -3,10 +3,10 @@ services:
   web:
     build: .
     container_name: web
+    restart: always
     environment:
       - NODE_ENV
     ports:
       - "${PORT}:${PORT}"
     volumes:
       - ".:/code"
-    restart: always
