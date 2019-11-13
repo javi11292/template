@@ -20,7 +20,7 @@ function getStore(state) {
 
     removeListener(key, callback) {
       this.listeners[key].delete(callback)
-      if (!this.listeners[key].size()) delete this.listeners[key]
+      if (!this.listeners[key].size) delete this.listeners[key]
     },
   }
 
