@@ -8,7 +8,7 @@ function getStore(state) {
     update(key, value) {
       if (this.state[key].value === value) return
       this.state[key].value = value
-      this.listeners[key].forEach(callback => callback())
+      if (this.listeners[key]) this.listeners[key].forEach(callback => callback())
     },
 
     addListener(key, callback) {
