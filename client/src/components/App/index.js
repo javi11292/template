@@ -12,9 +12,7 @@ import {
 } from "@material-ui/core"
 import useLogic from "./useLogic"
 
-const theme = createMuiTheme({
-  spacing: factor => `${0.5 * factor}rem`,
-})
+const theme = createMuiTheme()
 
 function App() {
   const { update, handleClose } = useLogic()
