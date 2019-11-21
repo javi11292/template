@@ -1,14 +1,25 @@
 import { useReducer, useEffect, useCallback } from "react"
+import produce from "immer"
 
-function getStore(state) {
+function getStore(fields) {
   const store = {
-    state,
+    fields,
     listeners: {},
 
+    get(key) {
+      return this.fields[key].state
+    },
+
     update(key, value) {
-      if (this.state[key].value === value) return
-      this.state[key].value = value
-      if (this.listeners[key]) this.listeners[key].forEach(callback => callback())
+      const field = this.fields[key]
+      const { state, reducer } = field
+      const listeners = this.listeners[key] || []
+
+      const nextState = produce(state, draftState => reducer(draftState, value))
+      if (state === nextState) return
+      field.state = nextState
+
+      listeners.forEach(callback => callback())
     },
 
     addListener(key, callback) {
@@ -32,12 +43,9 @@ function getStore(state) {
       return () => store.removeListener(key, forceUpdate)
     }, [key, subscribe])
 
-    const update = useCallback(value => {
-      const field = store.state[key]
-      store.update(key, field.reducer(field.value, value))
-    }, [key])
+    const update = useCallback(value => store.update(key, value), [key])
 
-    return subscribe ? [store.state[key].value, update] : update
+    return subscribe ? [store.get(key), update] : update
   }
 }
 
