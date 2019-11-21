@@ -21,6 +21,7 @@ function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
+      
       <Dialog onClose={handleClose} open={!!update}>
         <DialogTitle>Nueva versión disponible</DialogTitle>
 
