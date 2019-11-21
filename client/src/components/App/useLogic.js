@@ -12,17 +12,14 @@ function useLogic() {
     }
 
     window.addEventListener("update", callback)
-
     return () => window.removeEventListener("update", callback)
   }, [])
 
-  function handleClose(shouldUpdate) {
-    return () => {
-      if (shouldUpdate) {
-        update()
-      } else {
-        setUpdate()
-      }
+  function handleClose({ currentTarget }) {
+    if (currentTarget.dataset.value) {
+      update()
+    } else {
+      setUpdate()
     }
   }
 

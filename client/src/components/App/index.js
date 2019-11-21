@@ -28,8 +28,8 @@ function App() {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={handleClose(false)} color="secondary">Cancelar</Button>
-          <Button onClick={handleClose(true)} color="primary">Actualizar</Button>
+          <Button onClick={handleClose} data-value={false} color="secondary">Cancelar</Button>
+          <Button onClick={handleClose} data-value={true} color="primary">Actualizar</Button>
         </DialogActions>
       </Dialog>
     </MuiThemeProvider>
