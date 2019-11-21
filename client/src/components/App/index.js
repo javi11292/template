@@ -10,6 +10,7 @@ import {
   DialogActions,
   Button,
 } from "@material-ui/core"
+import Main from "components/Main"
 import useLogic from "./useLogic"
 
 const theme = createMuiTheme()
@@ -32,6 +33,8 @@ function App() {
           <Button onClick={handleClose} data-value={true} color="primary">Actualizar</Button>
         </DialogActions>
       </Dialog>
+
+      <Main />
     </MuiThemeProvider>
   )
 }
