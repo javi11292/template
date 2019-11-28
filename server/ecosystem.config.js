@@ -7,7 +7,7 @@ module.exports = {
     "log_date_format": "DD/MM/YY HH:mm:ss",
   }, {
     name: "wake",
-    script: "wake.js",
+    script: "src/wake",
     instances: "1",
   }],
 }
