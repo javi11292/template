@@ -16,7 +16,7 @@ function useLogic() {
   }, [])
 
   function handleClose({ currentTarget }) {
-    if (currentTarget.dataset.value) {
+    if (currentTarget.dataset.confirm) {
       update()
     } else {
       setUpdate()

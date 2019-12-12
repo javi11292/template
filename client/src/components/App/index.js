@@ -30,8 +30,8 @@ function App() {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={handleClose} data-value={false} color="secondary">Cancelar</Button>
-          <Button onClick={handleClose} data-value={true} color="primary">Actualizar</Button>
+          <Button onClick={handleClose} color="secondary">Cancelar</Button>
+          <Button onClick={handleClose} data-confirm color="primary">Actualizar</Button>
         </DialogActions>
       </Dialog>
 
