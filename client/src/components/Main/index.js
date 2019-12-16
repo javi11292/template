@@ -1,11 +1,13 @@
 import React from "react"
-import { Box } from "./styled"
+import useStyles from "./useStyles"
 
 function Main() {
-  return (
-    <Box>
+  const styles = useStyles()
 
-    </Box>
+  return (
+    <div className={styles.root}>
+
+    </div>
   )
 }
 
