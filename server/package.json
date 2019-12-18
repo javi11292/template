@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "deploy": "node scripts/deploy",
-    "start": "docker-compose up",
+    "start": "cd .. && docker-compose up",
     "start:development": "pm2-dev start ecosystem.config.js",
     "start:production": "pm2-runtime start ecosystem.config.js"
   },
   "dependencies": {
+    "compression": "^1.7.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.0",
     "pm2": "^4.2.0"

@@ -1,10 +1,12 @@
 require("./env")
+
 const express = require("express")
+const compression = require("compression")
 const router = require("./router")
 
-const PORT = process.env.PORT
 const app = express()
 
+app.use(compression())
 app.use(router)
 
-app.listen(PORT)
+app.listen(process.env.PORT)

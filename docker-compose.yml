@@ -4,8 +4,7 @@ services:
     build: .
     container_name: web
     restart: always
-    environment:
-      - NODE_ENV
+    env_file: .env
     ports:
       - "${PORT}:${PORT}"
     volumes:
