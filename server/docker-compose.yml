@@ -1,0 +1,17 @@
+version: "3"
+services:
+  server:
+    build: .
+    image: server
+    container_name: server
+    restart: always
+    env_file: .env
+    command: ${CMD} src/index
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - ".:/code"
+      - "node_modules:/code/node_modules"
+
+volumes:
+  node_modules:
