@@ -2,7 +2,7 @@ FROM node
 
 RUN apt-get update
 
-WORKDIR /code
+WORKDIR /server
 COPY package*.json ./
 
 RUN npm install

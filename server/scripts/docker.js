@@ -1,16 +1,37 @@
 const fs = require("fs")
 const { spawn } = require("child_process")
 
-const commands = {
-  build: "docker-compose build",
-  bash: "docker-compose exec server bash",
-  start: "docker-compose up",
+switch (process.argv[2]) {
+  case "bash": {
+    run("docker-compose exec server bash")
+    break
+  }
+
+  case "build": {
+    const command = `docker-compose down -v`
+      + ` && docker run -it -v ${process.cwd()}/../client:/client -v client:/build`
+      + ` -w /client --rm node bash -c "npm i && npm run build && cp -r build /"`
+      + ` && docker-compose build`
+
+    run(command)
+    break
+  }
+
+  default: {
+    run("docker-compose up")
+  }
 }
 
-fs.access(".env", error => {
-  if (error) fs.copyFileSync("examples/.env", ".env")
+function run(command) {
+  try {
+    fs.accessSync(".env")
+  } catch {
+    fs.copyFileSync("examples/.env", ".env")
+  }
+
   const NODE_ENV = fs.readFileSync(".env").toString().match(/NODE_ENV=(.*)/)[1]
-  spawn(commands[process.argv[2]], {
+
+  spawn(command, {
     shell: true,
     stdio: "inherit",
     env: {
@@ -18,6 +39,6 @@ fs.access(".env", error => {
       ...process.env,
     }
   })
-})
+}
 
 process.on("SIGINT", () => { })

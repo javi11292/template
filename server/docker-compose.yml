@@ -4,14 +4,17 @@ services:
     build: .
     image: server
     container_name: server
+    entrypoint: ${ENTRYPOINT} src/index
     restart: always
     env_file: .env
-    entrypoint: ${ENTRYPOINT} src/index
     ports:
       - "${PORT}:${PORT}"
     volumes:
-      - ".:/code"
-      - "node_modules:/code/node_modules"
+      - ".:/server"
+      - "client:/client"
+      - "node_modules:/server/node_modules"
 
 volumes:
+  client:
+    external: true
   node_modules:
