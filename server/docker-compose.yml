@@ -6,7 +6,7 @@ services:
     container_name: server
     restart: always
     env_file: .env
-    command: ${CMD} src/index
+    entrypoint: ${ENTRYPOINT} src/index
     ports:
       - "${PORT}:${PORT}"
     volumes:

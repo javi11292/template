@@ -3,7 +3,7 @@ const { spawn } = require("child_process")
 
 const commands = {
   build: "docker-compose build",
-  ssh: "docker-compose run --rm server bash || true",
+  bash: "docker-compose exec server bash",
   start: "docker-compose up",
 }
 
@@ -14,7 +14,7 @@ fs.access(".env", error => {
     shell: true,
     stdio: "inherit",
     env: {
-      CMD: NODE_ENV === "production" ? "node" : "npx nodemon",
+      ENTRYPOINT: NODE_ENV === "production" ? "node" : "npx nodemon",
       ...process.env,
     }
   })
