@@ -2,18 +2,13 @@ const fs = require("fs")
 const { spawn } = require("child_process")
 
 switch (process.argv[2]) {
-  case "bash": {
-    run("docker-compose exec server bash")
+  case "sh": {
+    run("docker-compose exec server sh")
     break
   }
 
   case "build": {
-    const command = `docker-compose down -v`
-      + ` && docker run -it -v ${process.cwd()}/../client:/client -v client:/build`
-      + ` -w /client --rm node bash -c "npm i && npm run build && cp -r build /"`
-      + ` && docker-compose build`
-
-    run(command)
+    run("docker-compose down -v && docker-compose build")
     break
   }
 

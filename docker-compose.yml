@@ -1,20 +1,19 @@
-version: "3"
+version: "3.7"
 services:
   server:
+    env_file: server/.env
     build: .
     image: server
     container_name: server
-    entrypoint: ${ENTRYPOINT} src/index
     restart: always
-    env_file: .env
+    entrypoint: ${ENTRYPOINT} src/index
     ports:
       - "${PORT}:${PORT}"
     volumes:
-      - ".:/server"
-      - "client:/client"
+      - "./server:/server"
+      - "build:/server/build"
       - "node_modules:/server/node_modules"
 
 volumes:
-  client:
-    external: true
+  build:
   node_modules:

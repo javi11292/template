@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "bash": "node scripts/docker bash",
+    "sh": "node scripts/docker sh",
     "build": "node scripts/docker build",
     "start": "node scripts/docker start"
   },
