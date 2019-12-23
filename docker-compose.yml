@@ -9,6 +9,8 @@ services:
       - "./server:/server"
       - "build:/server/build"
       - "node_modules:/server/node_modules"
+    ports:
+      - "${PORT-80}:${PORT-80}"
 
 volumes:
   build:

@@ -21,5 +21,3 @@ FROM node:alpine
 
 WORKDIR /server
 COPY --from=image /server .
-
-EXPOSE $PORT
