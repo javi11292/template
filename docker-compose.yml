@@ -4,9 +4,7 @@ services:
     env_file: server/.env
     build: .
     restart: always
-    entrypoint: ${ENTRYPOINT} src/index
-    ports:
-      - "${PORT}:${PORT}"
+    entrypoint: ${ENTRYPOINT-node} src/index
     volumes:
       - "./server:/server"
       - "build:/server/build"
