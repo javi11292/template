@@ -3,8 +3,6 @@ services:
   server:
     env_file: server/.env
     build: .
-    image: server
-    container_name: server
     restart: always
     entrypoint: ${ENTRYPOINT} src/index
     ports:
