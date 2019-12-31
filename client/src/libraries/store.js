@@ -34,7 +34,7 @@ function getStore(fields) {
     },
   }
 
-  return (key, subscribe = true) => {
+  function useStore(key, subscribe = true) {
     const [, forceUpdate] = useReducer(state => !state, false)
 
     useEffect(() => {
@@ -47,6 +47,8 @@ function getStore(fields) {
 
     return subscribe ? [store.get(key), update] : update
   }
+
+  return useStore
 }
 
 export default getStore
