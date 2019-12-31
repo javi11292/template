@@ -7,7 +7,7 @@ const app = express()
 app.use(compression())
 app.use(router)
 
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
   console.log(`Listening on port ${process.env.PORT}`)
 })
 

@@ -1,14 +1,16 @@
 FROM node:alpine AS image
 
-RUN mkdir /server
+RUN mkdir /client && chown node /client
+RUN mkdir /server && chown node /server
+
+USER node
 
 WORKDIR /client
 COPY client/package*.json ./
 RUN npm install
 
 COPY client .
-RUN npm run build
-RUN mv build /server
+RUN npm run build && mv build /server
 
 WORKDIR /server
 COPY server/package*.json ./
@@ -18,6 +20,10 @@ COPY server .
 
 
 FROM node:alpine
+
+RUN mkdir /server && chown node /server
+
+USER node
 
 WORKDIR /server
 COPY --from=image /server .

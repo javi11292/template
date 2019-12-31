@@ -17,6 +17,19 @@ switch (process.argv[2]) {
   }
 }
 
+function getEnv() {
+  const regExp = /(.*)=(.*)/g
+  const env = {}
+  const envString = fs.readFileSync(".env").toString()
+
+  let match
+  while (match = regExp.exec(envString)) {
+    env[match[1]] = match[2]
+  }
+
+  return { ...env, ...process.env }
+}
+
 function run(command) {
   try {
     fs.accessSync(".env")
@@ -24,14 +37,14 @@ function run(command) {
     fs.copyFileSync("examples/.env", ".env")
   }
 
-  const NODE_ENV = fs.readFileSync(".env").toString().match(/NODE_ENV=(.*)/)[1]
+  const env = getEnv()
 
   spawn(command, {
     shell: true,
     stdio: "inherit",
     env: {
-      ENTRYPOINT: NODE_ENV === "production" ? "node" : "npx nodemon",
-      ...process.env,
+      ENTRYPOINT: env.NODE_ENV === "production" ? "node" : "npx nodemon",
+      ...env,
     }
   })
 }

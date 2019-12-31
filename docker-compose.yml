@@ -4,13 +4,13 @@ services:
     env_file: server/.env
     build: .
     restart: always
-    entrypoint: ${ENTRYPOINT-node} src/index
+    entrypoint: ${ENTRYPOINT} src/index
     volumes:
       - "./server:/server"
       - "build:/server/build"
       - "node_modules:/server/node_modules"
     ports:
-      - "${PORT-80}:${PORT-80}"
+      - "${PORT}:3000"
 
 volumes:
   build:
