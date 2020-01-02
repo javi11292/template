@@ -1,9 +1,8 @@
 version: "3.7"
 services:
   server:
-    env_file: server/.env
     build: .
-    restart: always
+    env_file: server/.env
     entrypoint: ${ENTRYPOINT} src/index
     volumes:
       - "./server:/server"
