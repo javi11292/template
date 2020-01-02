@@ -8,7 +8,7 @@ app.use(compression())
 app.use(router)
 
 app.listen(3000, () => {
-  console.log(`Listening on port ${process.env.PORT}`)
+  console.log("Server started")
 })
 
 process.on("SIGTERM", () => {

@@ -27,3 +27,5 @@ USER node
 
 WORKDIR /server
 COPY --from=image /server .
+
+EXPOSE 3000
