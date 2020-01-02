@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "sh": "node scripts/docker sh",
-    "build": "node scripts/docker build",
-    "start": "node scripts/docker start"
+    "start": "docker-compose up --build",
+    "sh": "docker-compose exec server sh"
   },
   "dependencies": {
     "compression": "^1.7.0",

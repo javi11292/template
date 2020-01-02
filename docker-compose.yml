@@ -1,13 +1,18 @@
 version: "3.7"
 services:
   server:
-    build: .
-    env_file: server/.env
-    entrypoint: ${ENTRYPOINT} src/index
+    env_file: server/.env.development
+    entrypoint: npx nodemon src/index
+    build: 
+      context: .
+      args:
+        NODE_ENV: development
     volumes:
       - "./server:/server"
       - "build:/server/build"
       - "node_modules:/server/node_modules"
+    ports:
+      - "${PORT-80}:3000"
 
 volumes:
   build:
