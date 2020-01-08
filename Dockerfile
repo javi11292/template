@@ -14,10 +14,11 @@ RUN npm install
 COPY server .
 
 FROM node:alpine
+RUN mkdir /client && chown node /client
 RUN mkdir /server && chown node /server
 USER node
+COPY --from=client /client/build /client
+COPY --from=server /server /server
 WORKDIR /server
-COPY --from=client /client/build build
-COPY --from=server /server .
 
 EXPOSE 3000
