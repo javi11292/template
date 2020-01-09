@@ -1,12 +1,12 @@
 version: "3.7"
 services:
   server:
-    entrypoint: npx nodemon src/index
     environment: 
       NODE_ENV: development
     build: 
       args:
         NODE_ENV: development
+    command: npx nodemon src/index
     volumes:
       - "./server:/server"
       - "node_modules:/server/node_modules"

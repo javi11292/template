@@ -1,7 +1,6 @@
 version: "3.7"
 services:
   server:
-    entrypoint: node src/index
     environment: 
       NODE_ENV: production
     build: 

@@ -22,3 +22,7 @@ COPY --from=server /server /server
 WORKDIR /server
 
 EXPOSE 3000
+
+ENTRYPOINT []
+
+CMD ["node", "src/index"]
