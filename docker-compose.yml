@@ -3,7 +3,9 @@ services:
   server:
     environment: 
       NODE_ENV: production
-    build: 
+    build:
+      context: . 
       args:
         NODE_ENV: production
-      context: .
+    ports:
+      - "${PORT-80}:3000"
