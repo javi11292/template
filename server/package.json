@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "docker-compose up --build",
-    "sh": "docker-compose exec server sh"
+    "start": "cd .. && docker-compose -f docker-compose.yml -f docker-compose.development.yml up --build",
+    "deploy": "cd .. && docker-compose up --build",
+    "sh": "cd .. && docker-compose exec server sh"
   },
   "dependencies": {
     "compression": "^1.7.0",
