@@ -1,4 +1,5 @@
 import React from "react"
+import Notifications from "components/Notifications"
 import useStyles from "./useStyles"
 
 function Main() {
@@ -6,7 +7,7 @@ function Main() {
 
   return (
     <div className={styles.root}>
-
+      <Notifications />
     </div>
   )
 }
