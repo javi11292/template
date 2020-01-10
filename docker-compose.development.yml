@@ -8,8 +8,4 @@ services:
         NODE_ENV: development
     command: npx nodemon src/index
     volumes:
-      - "./server:/server"
-      - "node_modules:/server/node_modules"
-
-volumes:
-  node_modules:
+      - "./server/src:/server/src"
