@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cd .. && docker-compose -f docker-compose.yml -f docker-compose.development.yml up --build",
+    "dev": "cd .. && docker-compose -f docker-compose.yml -f docker-compose.development.yml",
+    "build": "npm run dev -- build",
+    "start": "npm run dev -- up",
     "deploy": "cd .. && docker-compose up --build",
     "sh": "cd .. && docker-compose exec server sh"
   },
