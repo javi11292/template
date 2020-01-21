@@ -1,11 +1,9 @@
 const express = require("express")
-const compression = require("compression")
+const router = require("./router")
 
 const app = express()
 
-app.use(compression())
-app.use(express.static("/client", { maxAge: 1000 * 60 * 60 * 24 * 365 }))
-app.use((req, res) => res.sendFile("/client/index.html"))
+app.use(router)
 
 app.listen(3000, () => {
   console.log("Server started")
