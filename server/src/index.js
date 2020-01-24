@@ -5,10 +5,6 @@ const app = express()
 
 app.use(router)
 
-app.listen(3000, () => {
-  console.log("Server started")
-})
+app.listen(3000, () => console.log("Server started"))
 
-process.on("SIGTERM", () => {
-  process.exit()
-})
+process.on("SIGTERM", process.exit)
