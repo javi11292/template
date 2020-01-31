@@ -1,9 +1,7 @@
-import { makeStyles } from "@material-ui/core"
+import styled from "styled-components"
 
-export default makeStyles({
-  root: {
-    height: "100%",
-    width: "100%",
-    position: "absolute",
-  },
-})
+export const Box = styled.div`
+  height: 100%;
+  width: 100%;
+  position: absolute;
+`

@@ -1,14 +1,12 @@
 import React from "react"
 import Notifications from "components/Notifications"
-import useStyles from "./useStyles"
+import { Box } from "./useStyles"
 
 function Main() {
-  const styles = useStyles()
-
   return (
-    <div className={styles.root}>
+    <Box>
       <Notifications />
-    </div>
+    </Box>
   )
 }
 
