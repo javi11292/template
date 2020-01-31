@@ -3,6 +3,7 @@ import { NOTIFICATION } from "libraries/constants"
 
 export default makeStyles(theme => ({
   root: {
-    backgroundColor: props => props.variant === NOTIFICATION.error ? theme.palette.error.dark : theme.palette.primary.dark
+    backgroundColor: props => props.variant === NOTIFICATION.error ? theme.palette.error.dark : theme.palette.primary.dark,
+    color: "inherit",
   },
 }))

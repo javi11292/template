@@ -13,7 +13,7 @@ import {
 import Main from "components/Main"
 import useLogic from "./useLogic"
 
-const theme = createMuiTheme()
+const theme = createMuiTheme({ palette: { type: "dark" } })
 
 function App() {
   const { update, handleClose } = useLogic()
