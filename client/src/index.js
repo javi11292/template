@@ -6,7 +6,7 @@ import * as serviceWorker from "serviceWorker"
 
 const rootElement = document.getElementById("root");
 
-if (rootElement.hasChildNodes()) {
+if (process.env.NODE_ENV === "production" && rootElement.hasChildNodes()) {
   Array.from(document.getElementsByTagName("style")).forEach((style) => style.remove())
   hydrate(<App />, rootElement);
   WebFont.load({ google: { families: ["Roboto:300,400,500,700&display=swap"] } })
