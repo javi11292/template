@@ -4,14 +4,19 @@ import WebFont from "webfontloader"
 import App from "components/App"
 import * as serviceWorker from "serviceWorker"
 
+function loadFont() {
+  WebFont.load({ google: { families: ["Roboto:300,400,500,700&display=swap"] } })
+}
+
 const rootElement = document.getElementById("root");
 
 if (process.env.NODE_ENV === "production" && rootElement.hasChildNodes()) {
   Array.from(document.getElementsByTagName("style")).forEach(style => style.remove())
   hydrate(<App />, rootElement);
-  WebFont.load({ google: { families: ["Roboto:300,400,500,700&display=swap"] } })
+  loadFont()
 } else {
   render(<App />, rootElement);
+  if (process.env.NODE_ENV === "development") loadFont()
 }
 
 function onUpdate(registration) {
