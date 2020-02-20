@@ -8,19 +8,19 @@ function loadFont() {
   WebFont.load({ google: { families: ["Roboto:300,400,500,700&display=swap"] } })
 }
 
+function onUpdate(registration) {
+  window.dispatchEvent(new CustomEvent("update", { detail: registration.waiting }))
+}
+
 const rootElement = document.getElementById("root");
 
 if (process.env.NODE_ENV === "production" && rootElement.hasChildNodes()) {
   Array.from(document.getElementsByTagName("style")).forEach(style => style.remove())
-  hydrate(<App />, rootElement);
   loadFont()
+  hydrate(<App />, rootElement);
 } else {
-  render(<App />, rootElement);
   if (process.env.NODE_ENV === "development") loadFont()
-}
-
-function onUpdate(registration) {
-  window.dispatchEvent(new CustomEvent("update", { detail: registration.waiting }))
+  render(<App />, rootElement);
 }
 
 serviceWorker.register({ onUpdate })
