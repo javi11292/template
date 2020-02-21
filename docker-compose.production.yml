@@ -4,8 +4,10 @@ services:
     environment: 
       NODE_ENV: production
     networks:
-      - default
-      - proxy
+      default
+      proxy:
+        aliases:
+          - cord
 
 networks:
   proxy:
