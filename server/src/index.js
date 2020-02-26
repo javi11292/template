@@ -1,8 +1,9 @@
 const express = require("express")
-const router = require("./router")
+const compression = require("compression")
 const https = require("https")
 const http = require("http")
 const fs = require("fs")
+const router = require("./router")
 
 function getOptions() {
   try {
@@ -16,6 +17,7 @@ function getOptions() {
 const app = express()
 const options = getOptions()
 
+app.use(compression())
 app.use(router)
 
 if (options) {
