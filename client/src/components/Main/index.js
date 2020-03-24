@@ -1,6 +1,6 @@
 import React from "react"
 import Notifications from "components/Notifications"
-import styled from "./styled"
+import * as styled from "./styled"
 
 function Main() {
   return (
