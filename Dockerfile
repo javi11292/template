@@ -23,7 +23,8 @@ COPY --from=client /client/build /client
 COPY --from=server /server /server
 WORKDIR /server
 
-EXPOSE 3000
+EXPOSE 3080
+EXPOSE 3443
 
 ENTRYPOINT []
 
