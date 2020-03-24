@@ -1,12 +1,12 @@
 import React from "react"
 import Notifications from "components/Notifications"
-import { Box } from "./useStyles"
+import styled from "./styled"
 
 function Main() {
   return (
-    <Box>
+    <styled.Box>
       <Notifications />
-    </Box>
+    </styled.Box>
   )
 }
 
