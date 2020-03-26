@@ -1,7 +1,6 @@
 import React from "react"
-import { Snackbar } from "@material-ui/core"
+import { Snackbar, SnackbarContent } from "@material-ui/core"
 import useLogic from "./useLogic"
-import * as styled from "./styled"
 
 function Notifications() {
   const { notification, handleClose, handleExited, open } = useLogic()
@@ -12,9 +11,7 @@ function Notifications() {
       onClose={handleClose}
       onExited={handleExited}
       autoHideDuration={2000}>
-      <styled.SnackbarContent
-        variant={notification.type}
-        message={notification.value} />
+      <SnackbarContent message={notification} />
     </Snackbar>
   )
 }

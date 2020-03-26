@@ -17,7 +17,7 @@ function useLogic() {
     setNotifications({ action: "shift" })
   }
 
-  return { notification: notifications[0] || {}, handleClose, handleExited, open }
+  return { notification: notifications[0], handleClose, handleExited, open }
 }
 
 export default useLogic

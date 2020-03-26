@@ -1,12 +1,12 @@
 import React from "react"
 import Notifications from "components/Notifications"
-import * as styled from "./styled"
+import styles from "./index.module.css"
 
-function Main() {
+function Main({ style }) {
   return (
-    <styled.Box>
+    <div className={styles.root} style={style}>
       <Notifications />
-    </styled.Box>
+    </div>
   )
 }
 

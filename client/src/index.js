@@ -9,7 +9,7 @@ function onUpdate(registration) {
 
 const rootElement = document.getElementById("root");
 
-if (rootElement.hasChildNodes()) {
+if (process.env.NODE_ENV === "production" && rootElement.hasChildNodes()) {
   Array.from(document.getElementsByTagName("style")).forEach(style => style.remove())
   hydrate(<App />, rootElement);
   serviceWorker.register({ onUpdate })

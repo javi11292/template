@@ -1,5 +1,4 @@
 import React from "react"
-import { ThemeProvider } from "styled-components"
 import {
   createMuiTheme,
   MuiThemeProvider,
@@ -13,9 +12,25 @@ import {
   StylesProvider
 } from "@material-ui/core"
 import Main from "components/Main"
+import { upperCase } from "libraries/util"
 import useLogic from "./useLogic"
 
-const theme = createMuiTheme()
+const includedKeys = /palettePrimary/
+
+const theme = createMuiTheme({ palette: { type: "dark" } })
+const style = getStyle(theme)
+
+function getStyle(value, path) {
+  if (value && typeof value === "object") {
+    return Object.entries(value).reduce((acc, [key, entry]) => {
+      const style = getStyle(entry, path ? `${path}${upperCase(key)}` : key)
+      Object.assign(acc, style)
+      return acc
+    }, {})
+  } else if (includedKeys.test(path)) {
+    return { [`--${path}`]: value }
+  }
+}
 
 function App() {
   const { update, handleClose } = useLogic()
@@ -23,24 +38,22 @@ function App() {
   return (
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
+        <CssBaseline />
 
-          <Dialog onClose={handleClose} open={!!update}>
-            <DialogTitle>Nueva versión disponible</DialogTitle>
+        <Dialog onClose={handleClose} open={!!update}>
+          <DialogTitle>Nueva versión disponible</DialogTitle>
 
-            <DialogContent>
-              <DialogContentText>Pulsa "Actualizar" para aplicar los cambios</DialogContentText>
-            </DialogContent>
+          <DialogContent>
+            <DialogContentText>Pulsa "Actualizar" para aplicar los cambios</DialogContentText>
+          </DialogContent>
 
-            <DialogActions>
-              <Button onClick={handleClose} color="secondary">Cancelar</Button>
-              <Button onClick={handleClose} data-confirm color="primary">Actualizar</Button>
-            </DialogActions>
-          </Dialog>
+          <DialogActions>
+            <Button onClick={handleClose} color="secondary">Cancelar</Button>
+            <Button onClick={handleClose} data-confirm color="primary">Actualizar</Button>
+          </DialogActions>
+        </Dialog>
 
-          <Main />
-        </ThemeProvider>
+        <Main style={style} />
       </MuiThemeProvider>
     </StylesProvider>
   )
