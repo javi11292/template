@@ -26,17 +26,14 @@ const theme = createMuiTheme({
     secondary: blue,
   },
 })
-const style = getStyle(theme)
 
-function getStyle(value, path) {
+setStyle(theme)
+
+function setStyle(value, path) {
   if (value && typeof value === "object") {
-    return Object.entries(value).reduce((acc, [key, entry]) => {
-      const style = getStyle(entry, path ? `${path}${upperCase(key)}` : key)
-      Object.assign(acc, style)
-      return acc
-    }, {})
+    return Object.entries(value).forEach(([key, entry]) => setStyle(entry, path ? `${path}${upperCase(key)}` : key))
   } else if (includedKeys.test(path)) {
-    return { [`--${path}`]: value }
+    return document.documentElement.style.setProperty(`--${path}`, value)
   }
 }
 
@@ -61,7 +58,7 @@ function App() {
           </DialogActions>
         </Dialog>
 
-        <Main style={style} />
+        <Main />
       </MuiThemeProvider>
     </StylesProvider>
   )
