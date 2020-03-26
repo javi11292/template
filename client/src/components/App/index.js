@@ -11,13 +11,21 @@ import {
   Button,
   StylesProvider
 } from "@material-ui/core"
+import green from "@material-ui/core/colors/green"
+import blue from "@material-ui/core/colors/blue"
 import Main from "components/Main"
 import { upperCase } from "libraries/util"
 import useLogic from "./useLogic"
 
 const includedKeys = /palettePrimary/
 
-const theme = createMuiTheme({ palette: { type: "dark" } })
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+    primary: green,
+    secondary: blue,
+  },
+})
 const style = getStyle(theme)
 
 function getStyle(value, path) {
