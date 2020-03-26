@@ -31,7 +31,7 @@ setStyle(theme)
 
 function setStyle(value, path) {
   if (value && typeof value === "object") {
-    return Object.entries(value).forEach(([key, entry]) => setStyle(entry, path ? `${path}${upperCase(key)}` : key))
+    Object.entries(value).forEach(([key, entry]) => setStyle(entry, path ? `${path}${upperCase(key)}` : key))
   } else if (includedKeys.test(path)) {
     return document.documentElement.style.setProperty(`--${path}`, value)
   }
