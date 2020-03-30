@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useLayoutEffect } from "react"
 
 function useLogic(style) {
   const [update, setUpdate] = useState()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const styleElement = document.createElement("style")
     styleElement.innerHTML = style
     document.head.appendChild(styleElement)
