@@ -27,18 +27,21 @@ const theme = createMuiTheme({
   },
 })
 
-setStyle(theme)
+const style = `:root{${getStyle(theme)}}`
 
-function setStyle(value, path) {
+function getStyle(value, path) {
   if (value && typeof value === "object") {
-    Object.entries(value).forEach(([key, entry]) => setStyle(entry, path ? `${path}${upperCase(key)}` : key))
+    return Object.entries(value).reduce((acc, [key, entry]) => {
+      const style = getStyle(entry, path ? `${path}${upperCase(key)}` : key)
+      return style ? acc + style : acc
+    }, "")
   } else if (includedKeys.test(path)) {
-    return document.documentElement.style.setProperty(`--${path}`, value)
+    return `--${path}:${value};`
   }
 }
 
 function App() {
-  const { update, handleClose } = useLogic()
+  const { update, handleClose } = useLogic(style)
 
   return (
     <StylesProvider injectFirst>

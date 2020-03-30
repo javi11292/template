@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react"
 
-function useLogic() {
+function useLogic(style) {
   const [update, setUpdate] = useState()
+
+  useEffect(() => {
+    const styleElement = document.createElement("style")
+    styleElement.innerHTML = style
+    document.head.appendChild(styleElement)
+  }, [style])
 
   useEffect(() => {
     function callback({ detail }) {
