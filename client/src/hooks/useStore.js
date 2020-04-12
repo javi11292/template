@@ -3,7 +3,7 @@ import getStore from "eztore"
 export default getStore({
   notifications: {
     state: [],
-    reducer: (state, { action, value }) => {
+    reducer(state, { action, value }) {
       switch (action) {
         case "push":
           state.push(value)
