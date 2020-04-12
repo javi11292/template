@@ -1,6 +1,6 @@
 import { HOST } from "./constants"
 
-export const API = `${HOST}/api`
+const API = `${HOST}/api`
 
 export function get(path) {
   return send(`${API}${path}`, {
