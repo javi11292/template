@@ -15,7 +15,7 @@ import green from "@material-ui/core/colors/green"
 import blue from "@material-ui/core/colors/blue"
 import Main from "components/Main"
 import { upperCase } from "libraries/util"
-import useLogic from "./useLogic"
+import { useLogic } from "./logic"
 
 const INCLUDED_KEYS = /palettePrimary/
 

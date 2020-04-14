@@ -1,8 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from "react"
 
-function useLogic(style) {
-  const [update, setUpdate] = useState()
-
+export function useLogic(style) {
   function handleClose({ currentTarget }) {
     if (currentTarget.dataset.confirm) {
       update()
@@ -10,6 +8,8 @@ function useLogic(style) {
       setUpdate()
     }
   }
+
+  const [update, setUpdate] = useState()
 
   useLayoutEffect(() => {
     const styleElement = document.createElement("style")
@@ -31,5 +31,3 @@ function useLogic(style) {
 
   return { update, handleClose }
 }
-
-export default useLogic

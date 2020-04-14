@@ -1,6 +1,6 @@
-import getStore from "eztore"
+import { getStore } from "eztore"
 
-export default getStore({
+export const useStore = getStore({
   notifications: {
     state: [],
     reducer(state, { action, value }) {

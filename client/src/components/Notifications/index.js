@@ -1,6 +1,6 @@
 import React from "react"
 import { Snackbar, SnackbarContent } from "@material-ui/core"
-import useLogic from "./useLogic"
+import { useLogic } from "./logic"
 
 function Notifications() {
   const { notification, handleClose, handleExited, open } = useLogic()

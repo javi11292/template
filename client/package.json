@@ -10,7 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.9.0",
-    "eztore": "^2.0.0",
+    "eztore": "^3.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "^3.4.0"
