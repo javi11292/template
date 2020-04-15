@@ -13,7 +13,7 @@ export function useLogic(style) {
 
   useLayoutEffect(() => {
     const styleElement = document.createElement("style")
-    styleElement.innerHTML = style
+    styleElement.textContent = style
     document.head.appendChild(styleElement)
   }, [style])
 
