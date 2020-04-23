@@ -30,16 +30,6 @@ export function upload(path, data) {
   })
 }
 
-async function parseResponse(response) {
-  const text = await response.text()
-
-  try {
-    return JSON.parse(text)
-  } catch {
-    return text
-  }
-}
-
 async function send(input, init) {
   try {
     const response = await fetch(input, init)
@@ -47,5 +37,15 @@ async function send(input, init) {
     return parseResponse(response)
   } catch {
     return { error: "Error" }
+  }
+}
+
+async function parseResponse(response) {
+  const text = await response.text()
+
+  try {
+    return JSON.parse(text)
+  } catch {
+    return text
   }
 }

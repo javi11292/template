@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect, useLayoutEffect } from "react"
 import {
   createMuiTheme,
   MuiThemeProvider,
@@ -15,12 +15,37 @@ import green from "@material-ui/core/colors/green"
 import blue from "@material-ui/core/colors/blue"
 import Main from "components/Main"
 import { upperCase } from "libraries/util"
-import { useLogic } from "./logic"
 
 const INCLUDED_KEYS = /palettePrimary/
 
 function App() {
-  const { update, handleClose } = useLogic(style)
+  function handleClose({ currentTarget }) {
+    if (currentTarget.dataset.confirm) {
+      update()
+    } else {
+      setUpdate()
+    }
+  }
+
+  const [update, setUpdate] = useState()
+
+  useLayoutEffect(() => {
+    const styleElement = document.createElement("style")
+    styleElement.textContent = style
+    document.head.appendChild(styleElement)
+  }, [])
+
+  useEffect(() => {
+    function callback({ detail }) {
+      setUpdate(() => () => {
+        detail.postMessage({ type: "SKIP_WAITING" })
+        window.location.reload()
+      })
+    }
+
+    window.addEventListener("update", callback)
+    return () => window.removeEventListener("update", callback)
+  }, [])
 
   return (
     <StylesProvider injectFirst>
