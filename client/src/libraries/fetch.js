@@ -22,7 +22,6 @@ export function post(path, body) {
 export function upload(path, data) {
   const formData = new FormData()
   Object.entries(data).forEach(([key, value]) => formData.append(key, value))
-
   return send(`${API}${path}`, {
     credentials: "include",
     method: "POST",
@@ -42,7 +41,6 @@ async function send(input, init) {
 
 async function parseResponse(response) {
   const text = await response.text()
-
   try {
     return JSON.parse(text)
   } catch {

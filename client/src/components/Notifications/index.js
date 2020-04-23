@@ -3,6 +3,9 @@ import { Snackbar, SnackbarContent } from "@material-ui/core"
 import { useStore } from "hooks/store"
 
 function Notifications() {
+  const [open, setOpen] = useState(false)
+  const [notifications, setNotifications] = useStore("notifications")
+
   function handleClose() {
     setOpen(false)
   }
@@ -10,9 +13,6 @@ function Notifications() {
   function handleExited() {
     setNotifications({ action: "shift" })
   }
-
-  const [open, setOpen] = useState(false)
-  const [notifications, setNotifications] = useStore("notifications")
 
   useEffect(() => {
     setOpen(notifications.length > 0)

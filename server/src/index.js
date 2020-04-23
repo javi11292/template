@@ -5,6 +5,9 @@ const http = require("http")
 const fs = require("fs")
 const router = require("./router")
 
+const app = express()
+const options = getOptions()
+
 function getOptions() {
   try {
     return {
@@ -13,9 +16,6 @@ function getOptions() {
     }
   } catch  { }
 }
-
-const app = express()
-const options = getOptions()
 
 app.use((req, res, next) => {
   if (options && !req.secure) res.redirect(301, `https://${req.headers.host}${req.url}`)
