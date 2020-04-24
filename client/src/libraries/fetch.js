@@ -1,15 +1,13 @@
-import { HOST } from "./constants"
-
-const API = `${HOST}/api`
+const HOST = "api"
 
 export function get(path) {
-  return send(`${API}${path}`, {
+  return send(`${HOST}${path}`, {
     credentials: "include",
   })
 }
 
 export function post(path, body) {
-  return send(`${API}${path}`, {
+  return send(`${HOST}${path}`, {
     credentials: "include",
     method: "POST",
     headers: {
@@ -22,7 +20,7 @@ export function post(path, body) {
 export function upload(path, data) {
   const formData = new FormData()
   Object.entries(data).forEach(([key, value]) => formData.append(key, value))
-  return send(`${API}${path}`, {
+  return send(`${HOST}${path}`, {
     credentials: "include",
     method: "POST",
     body: formData,

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Snackbar, SnackbarContent } from "@material-ui/core"
 import { useStore } from "hooks/store"
 
-function Notifications() {
+export default function Notifications() {
   const [open, setOpen] = useState(false)
   const [notifications, setNotifications] = useStore("notifications")
 
@@ -28,5 +28,3 @@ function Notifications() {
     </Snackbar>
   )
 }
-
-export default Notifications
