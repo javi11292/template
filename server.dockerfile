@@ -7,8 +7,8 @@ RUN npm install
 COPY server .
 
 FROM node:alpine
-RUN mkdir /server && chown node:node /server
-USER node
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
 COPY --from=server /server /server
 WORKDIR /server
 

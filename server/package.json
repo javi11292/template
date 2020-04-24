@@ -5,10 +5,9 @@
   "scripts": {
     "docker": "cd .. && docker-compose -f docker-compose.yml",
     "development": "npm run docker -- -f docker-compose.development.yml",
-    "production": "npm run docker -- -f docker-compose.production.yml",
     "build": "npm run development -- build",
     "dev": "npm run development -- up",
-    "start": "npm run production -- up --build"
+    "start": "npm run docker -- up --build"
   },
   "dependencies": {
     "compression": "^1.7.0",

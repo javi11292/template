@@ -1,6 +1,7 @@
 FROM node:alpine as client
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
+ENV NEXT_TELEMETRY_DISABLED 1
 WORKDIR /client
 COPY client/package*.json ./
 RUN npm install
@@ -8,8 +9,9 @@ COPY client .
 RUN npm run build
 
 FROM node:alpine
-RUN mkdir /client && chown node:node /client
-USER node
+ARG NODE_ENV=production
+ENV NODE_ENV $NODE_ENV
+ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=client /client /client
 WORKDIR /client
 

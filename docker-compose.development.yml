@@ -1,8 +1,6 @@
 version: "3.7"
 services:
   client:
-    environment: 
-      NODE_ENV: development
     build: 
       args:
         NODE_ENV: development
@@ -11,8 +9,6 @@ services:
     command: npm run dev
 
   server:
-    environment: 
-      NODE_ENV: development
     build: 
       args:
         NODE_ENV: development

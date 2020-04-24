@@ -1,9 +1,0 @@
-version: "3.7"
-services:
-  client:
-    environment: 
-      NODE_ENV: production
-      
-  server:
-    environment: 
-      NODE_ENV: production
