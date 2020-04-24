@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "babel": "babel src -d lib",
     "build": "react-scripts build",
-    "start": "react-scripts start",
-    "postbuild": "react-snap"
+    "start": "react-scripts start"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.0",
@@ -14,17 +14,6 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "^3.4.0"
-  },
-  "devDependencies": {
-    "react-snap": "^1.23.0"
-  },
-  "reactSnap": {
-    "puppeteerArgs": [
-      "--no-sandbox"
-    ],
-    "puppeteerExecutablePath": "/usr/bin/chromium-browser",
-    "asyncScriptTags": true,
-    "inlineCss": true
   },
   "eslintConfig": {
     "extends": "react-app"

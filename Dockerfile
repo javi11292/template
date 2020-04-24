@@ -1,10 +1,9 @@
 FROM node:alpine as client
-RUN apk add --no-cache chromium
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 WORKDIR /client
 COPY client/package*.json ./
 RUN npm install
 COPY client .
+RUN npm run babel
 RUN npm run build
 
 FROM node:alpine as server
@@ -19,7 +18,7 @@ FROM node:alpine
 RUN mkdir /client && chown node /client
 RUN mkdir /server && chown node /server
 USER node
-COPY --from=client /client/build /client
+COPY --from=client /client /client
 COPY --from=server /server /server
 WORKDIR /server
 
