@@ -1,4 +1,4 @@
-const HOST = "api"
+const HOST = "/api"
 
 export function get(path) {
   return send(`${HOST}${path}`, {
@@ -32,8 +32,8 @@ async function send(input, init) {
     const response = await fetch(input, init)
     if (!response.ok) throw new Error()
     return parseResponse(response)
-  } catch {
-    return { error: "Error" }
+  } catch (error) {
+    console.error(error)
   }
 }
 
