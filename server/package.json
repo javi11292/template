@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "docker": "cd .. && docker-compose -f docker-compose.yml",
-    "development": "npm run docker -- -f docker-compose.development.yml",
-    "build": "npm run development -- build",
-    "dev": "npm run development -- up",
+    "dev": "npm run docker -- -f docker-compose.development.yml up --build ",
     "start": "npm run docker -- up --build"
   },
   "dependencies": {
