@@ -1,5 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document"
 import { ServerStyleSheets } from "@material-ui/core"
+import { STYLE } from "libraries/theme"
 
 export default class Document extends NextDocument {
   static async getInitialProps(context) {
@@ -31,6 +32,7 @@ export default class Document extends NextDocument {
           <link href="https://fonts.gstatic.com" rel="preconnect" />
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="preload" as="style" />
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+          <style dangerouslySetInnerHTML={{ __html: STYLE }} />
         </Head>
 
         <body>
