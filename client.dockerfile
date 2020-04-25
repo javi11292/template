@@ -6,7 +6,6 @@ WORKDIR /client
 COPY client/package*.json ./
 RUN npm install
 COPY client .
-RUN npm run build
 
 FROM node:alpine
 ARG NODE_ENV=production
@@ -19,4 +18,4 @@ EXPOSE 3000
 
 ENTRYPOINT []
 
-CMD ["node", "/client/node_modules/.bin/next", "start"]
+CMD node /client/node_modules/.bin/next build && node /client/node_modules/.bin/next start

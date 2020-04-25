@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   client:
+    restart: always
     build:
       context: .
       dockerfile: client.dockerfile
@@ -8,6 +9,7 @@ services:
       - nginx
 
   server:
+    restart: always
     build:
       context: .
       dockerfile: server.dockerfile
@@ -15,6 +17,7 @@ services:
       - nginx
 
   nginx:
+    restart: always
     image: nginx:alpine
     networks:
       - nginx

@@ -1,4 +1,5 @@
-const HOST = "/api"
+import fetch from "node-fetch"
+const HOST = !global.window ? "http://nginx/api" : "/api"
 
 export function get(path) {
   return send(`${HOST}${path}`, {
