@@ -6,7 +6,7 @@ const router = require("./router")
 const app = express()
 
 app.use(compression())
-app.use(router)
+app.use("/api", router)
 
 http.createServer(app).listen(3000, () => console.log("HTTP server started"))
 
