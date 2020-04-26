@@ -66,7 +66,7 @@ export default function Main({ children }) {
               </DialogContent>
 
               <DialogActions>
-                <Button onClick={handleClose} color="secondary">Cancelar</Button>
+                <Button onClick={handleClose}>Cancelar</Button>
                 <Button onClick={handleClose} data-confirm color="primary">Actualizar</Button>
               </DialogActions>
             </>
