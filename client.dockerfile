@@ -18,4 +18,4 @@ EXPOSE 3000
 
 ENTRYPOINT []
 
-CMD node /client/node_modules/.bin/next build && node /client/node_modules/.bin/next start
+CMD ["npm", "start"]

@@ -15,7 +15,7 @@ export default class Document extends NextDocument {
 
     return {
       ...initialProps,
-      styles: [sheets.getStyleElement()]
+      materialStyles: sheets.toString().replace(/\s/g, ""),
     }
   }
 
@@ -33,6 +33,7 @@ export default class Document extends NextDocument {
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="preload" as="style" />
           <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
           <style dangerouslySetInnerHTML={{ __html: STYLE }} />
+          <style id="jss-server-side" dangerouslySetInnerHTML={{ __html: this.props.materialStyles }} />
         </Head>
 
         <body>

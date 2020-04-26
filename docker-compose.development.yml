@@ -15,3 +15,7 @@ services:
     volumes:
       - ./server/src:/server/src
     command: npx nodemon src/index
+
+  nginx:
+    volumes:
+      - ./nginx.development.conf:/etc/nginx/nginx.conf
