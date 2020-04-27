@@ -15,7 +15,6 @@ export function useFetch(request) {
       }
 
       getResponse()
-      setResponse()
       setLoading(true)
     }
   }, [request])
