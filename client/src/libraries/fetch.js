@@ -31,7 +31,7 @@ export function upload(path, data) {
 async function send(input, init) {
   try {
     const response = await fetch(input, init)
-    if (!response.ok) throw new Error()
+    if (!response.ok) return { status: response.status, error: response.statusText }
     return parseResponse(response)
   } catch (error) {
     console.error(error)
