@@ -8,7 +8,7 @@ export function useFetch(path, body) {
   useEffect(() => {
     if (path) {
       async function getResponse() {
-        const response = await body ? get(path) : post(path, body)
+        const response = await body ? post(path, body) : get(path)
         setResponse(response)
         setLoading(false)
       }
