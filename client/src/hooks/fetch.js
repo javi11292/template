@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { get, post } from "libraries/fetch"
 
-export function useFetch(path, body) {
+export function useFetch([path, body]) {
   const [loading, setLoading] = useState(false)
   const [response, setResponse] = useState()
 
