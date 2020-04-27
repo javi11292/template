@@ -1,5 +1,5 @@
 import fetch from "node-fetch"
-const HOST = !global.window ? "http://nginx/api" : "/api"
+const HOST = typeof window === "undefined" ? "http://nginx/api" : "/api"
 
 export function get(path) {
   return send(`${HOST}${path}`, {
@@ -35,6 +35,7 @@ async function send(input, init) {
     return parseResponse(response)
   } catch (error) {
     console.error(error)
+    return null
   }
 }
 
