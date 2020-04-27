@@ -14,6 +14,7 @@ export function useFetch(path, body) {
       }
 
       getResponse()
+      setResponse()
       setLoading(true)
     }
   }, [path, body])
