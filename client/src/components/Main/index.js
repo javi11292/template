@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core"
 import Notifications from "components/Notifications"
 import { THEME } from "libraries/theme"
-import styles from "./index.module.css"
+import * as styled from "./styled"
 
 export default function Main({ children }) {
   const [update, setUpdate] = useState()
@@ -73,10 +73,10 @@ export default function Main({ children }) {
           }
         </Dialog>
 
-        <div className={styles.root}>
+        <styled.Root>
           <Notifications />
           {children}
-        </div>
+        </styled.Root>
       </MuiThemeProvider>
     </StylesProvider>
   )
