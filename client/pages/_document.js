@@ -1,6 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document"
 import { ServerStyleSheets as MaterialSheet } from "@material-ui/core"
-import { ServerStyleSheet as StyledSheet } from 'styled-components'
+import { ServerStyleSheet as StyledSheet } from "styled-components"
 
 export default class Document extends NextDocument {
   static async getInitialProps(context) {

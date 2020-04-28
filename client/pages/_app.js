@@ -1,6 +1,6 @@
 import Head from "next/head"
+import Error from "next/error"
 import Main from "components/Main"
-import Error from 'next/error'
 
 export default function App({ Component, pageProps }) {
   return (
