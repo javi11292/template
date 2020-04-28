@@ -9,7 +9,7 @@ export function useFetch(request) {
   const [response, setResponse] = useState()
 
   useEffect(() => {
-    const { path, body } = request
+    const { path, body } = request || {}
     if (path) {
       async function getResponse() {
         const response = await (body ? post(path, body) : get(path))
