@@ -1,7 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document"
 import { ServerStyleSheets as MaterialSheet } from "@material-ui/core"
 import { ServerStyleSheet as StyledSheet } from 'styled-components'
-import { STYLE } from "libraries/theme"
 
 export default class Document extends NextDocument {
   static async getInitialProps(context) {
@@ -24,7 +23,6 @@ export default class Document extends NextDocument {
             id="jss-server-side"
             dangerouslySetInnerHTML={{ __html: materialSheet.toString().replace(/\n/g, "").replace(/ {2,}/g, "") }} />
           {styledSheet.getStyleElement()}
-          <style dangerouslySetInnerHTML={{ __html: STYLE }} />
         </>
       )
     }
