@@ -30,7 +30,7 @@ export default class Document extends NextDocument {
 
     return {
       ...initialProps,
-      materialStyles: sheets.toString().replace(/\n|\t/g, ""),
+      materialStyles: sheets.toString().replace(/\n/g, "").replace(/ {2,}/g, ""),
     }
   }
 
