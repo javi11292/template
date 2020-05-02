@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Snackbar, SnackbarContent } from "@material-ui/core"
 import { useStore } from "hooks/store"
 
