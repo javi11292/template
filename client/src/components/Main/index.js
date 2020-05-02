@@ -38,7 +38,9 @@ export default function Main({ children }) {
         const worker = registration.installing
         let hasUpdated = false
 
-        function handleUpdate() {
+        async function handleUpdate() {
+          const cacheNames = await caches.keys()
+          await Promise.all(cacheNames.map(cache => caches.delete(cache)))
           hasUpdated = true
           setUpdate(() => () => worker.postMessage({ type: "SKIP_WAITING" }))
         }
