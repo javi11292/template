@@ -38,16 +38,18 @@ export default function Main({ children }) {
         const worker = registration.installing
         let hasUpdated = false
 
-        async function handleUpdate() {
-          const cacheNames = await caches.keys()
-          await Promise.all(cacheNames.map(cache => caches.delete(cache)))
+        function handleUpdate() {
           hasUpdated = true
           setUpdate(() => () => worker.postMessage({ type: "SKIP_WAITING" }))
         }
 
-        worker.onstatechange = () => {
+        worker.onstatechange = async () => {
           if (worker.state === "installed" && navigator.serviceWorker.controller) handleUpdate()
-          if (worker.state === "activated" && hasUpdated) window.location.reload()
+          if (worker.state === "activated" && hasUpdated) {
+            const cacheNames = await caches.keys()
+            await Promise.all(cacheNames.map(cache => caches.delete(cache)))
+            window.location.reload()
+          }
         }
       }
     })
