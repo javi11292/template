@@ -1,9 +1,12 @@
+require("dotenv").config()
 const express = require("express")
+const cors = require("cors")
 const http = require("http")
 const router = require("./router")
 
 const app = express()
 
+app.use(cors({ origin: process.env.ORIGIN, credentials: true }))
 app.use(router)
 
 http.createServer(app).listen(3000, () => console.log("HTTP server started"))
