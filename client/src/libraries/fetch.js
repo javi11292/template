@@ -1,5 +1,4 @@
-import fetch from "node-fetch"
-const HOST = typeof window === "undefined" ? "http://server:3000/api" : "/api"
+const HOST = process.env.NEXT_PUBLIC_HOST
 
 export function get(path) {
   return send(`${HOST}${path}`, {

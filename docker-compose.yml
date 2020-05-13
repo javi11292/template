@@ -1,16 +1,9 @@
 version: "3.7"
 services:
-  client:
-    restart: always
-    build:
-      context: .
-      dockerfile: client.dockerfile
-
   server:
     restart: always
     build:
       context: .
-      dockerfile: server.dockerfile
 
   nginx:
     restart: always
