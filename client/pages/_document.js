@@ -1,13 +1,15 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document"
-import { ServerStyleSheets } from "@material-ui/core"
+import { ServerStyleSheets as MaterialSheet } from "@material-ui/core"
+import { ServerStyleSheet as StyledSheet } from "styled-components"
 
 export default class Document extends NextDocument {
   static async getInitialProps(context) {
-    const renderPage = context.renderPage
-    const styleSheets = new ServerStyleSheets()
+    const originalRenderPage = context.renderPage
+    const materialSheet = new MaterialSheet()
+    const styledSheet = new StyledSheet()
 
-    context.renderPage = () => renderPage({
-      enhanceApp: App => props => styleSheets.collect(<App {...props} />)
+    context.renderPage = () => originalRenderPage({
+      enhanceApp: App => props => materialSheet.collect(styledSheet.collectStyles(<App {...props} />))
     })
 
     const initialProps = await NextDocument.getInitialProps(context)
@@ -19,7 +21,8 @@ export default class Document extends NextDocument {
           {initialProps.styles}
           <style
             id="jss-server-side"
-            dangerouslySetInnerHTML={{ __html: styleSheets.toString().replace(/\n/g, "").replace(/ {2,}/g, "") }} />
+            dangerouslySetInnerHTML={{ __html: materialSheet.toString().replace(/\n/g, "").replace(/ {2,}/g, "") }} />
+          {styledSheet.getStyleElement()}
         </>
       )
     }

@@ -6,7 +6,7 @@ import {
 } from "@material-ui/core"
 import Notifications from "components/Notifications"
 import { THEME } from "libraries/theme"
-import styles from "./index.module.scss"
+import * as styled from "./index.styled"
 
 export default function Main({ children }) {
   useEffect(() => {
@@ -32,10 +32,10 @@ export default function Main({ children }) {
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={THEME}>
         <CssBaseline />
-        <div className={styles.root}>
+        <styled.Root>
           <Notifications />
           {children}
-        </div>
+        </styled.Root>
       </MuiThemeProvider>
     </StylesProvider>
   )
