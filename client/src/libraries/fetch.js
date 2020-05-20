@@ -46,3 +46,9 @@ export function upload(path, data) {
     body: formData,
   })
 }
+
+export async function axios({ path, body, callback }) {
+  callback(state => ({ ...state, loading: true }))
+  const response = await (body ? post(path, body) : get(path))
+  callback({ response, loading: false })
+}
