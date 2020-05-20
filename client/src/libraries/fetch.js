@@ -1,5 +1,25 @@
 const HOST = process.env.NEXT_PUBLIC_HOST
 
+async function parseResponse(response) {
+  const text = await response.text()
+  try {
+    return JSON.parse(text)
+  } catch {
+    return text
+  }
+}
+
+async function send(input, init) {
+  try {
+    const response = await fetch(input, init)
+    if (!response.ok) return { error: response.statusText }
+    return parseResponse(response)
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
+
 export function get(path) {
   return send(`${HOST}${path}`, {
     credentials: "include",
@@ -25,24 +45,4 @@ export function upload(path, data) {
     method: "POST",
     body: formData,
   })
-}
-
-async function send(input, init) {
-  try {
-    const response = await fetch(input, init)
-    if (!response.ok) return { error: response.statusText }
-    return parseResponse(response)
-  } catch (error) {
-    console.error(error)
-    return null
-  }
-}
-
-async function parseResponse(response) {
-  const text = await response.text()
-  try {
-    return JSON.parse(text)
-  } catch {
-    return text
-  }
 }

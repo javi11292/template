@@ -6,11 +6,9 @@ export const useStore = getStore({
     reducer(state, { action, value }) {
       switch (action) {
         case "push":
-          state.push(value)
-          break
+          return [...state, value]
         case "shift":
-          state.shift()
-          break
+          return state.slice(1)
         default:
           return
       }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { get, post } from "libraries/fetch"
 
 /**
- * @param {{path: string, body}} request 
+ * @param {{ path: string, body }} request 
  */
 export function useFetch(request) {
   const [state, setState] = useState({ loading: false })

@@ -12,12 +12,12 @@
     "@material-ui/icons": "^4.9.0",
     "@next/bundle-analyzer": "^9.4.0",
     "babel-plugin-styled-components": "^1.10.0",
-    "eztore": "^3.0.0",
+    "eztore": "^4.0.0",
     "next": "^9.4.0",
     "next-offline": "^5.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "styled-components": "^5.1.0"
+    "sass": "^1.26.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.29.0",
