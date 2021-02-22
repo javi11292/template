@@ -5,7 +5,7 @@ import {
   StylesProvider,
 } from "@material-ui/core"
 import dynamic from "next/dynamic"
-import { THEME } from "libraries/theme"
+import { theme } from "libraries/theme"
 import styles from "./index.module.scss"
 
 const Notifications = dynamic(() => import("components/notifications"))
@@ -32,7 +32,7 @@ export default function Main({ children }) {
 
   return (
     <StylesProvider injectFirst>
-      <MuiThemeProvider theme={THEME}>
+      <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <div className={styles.root}>
           <Notifications />
