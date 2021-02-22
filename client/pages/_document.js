@@ -1,30 +1,26 @@
+import { Children } from "react"
 import NextDocument, { Html, Head, Main, NextScript } from "next/document"
-import { ServerStyleSheets as MaterialSheet } from "@material-ui/core"
-import { ServerStyleSheet as StyledSheet } from "styled-components"
+import { ServerStyleSheets } from "@material-ui/core"
+import CleanCSS from "clean-css"
+
+const cleanCSS = new CleanCSS()
 
 export default class Document extends NextDocument {
   static async getInitialProps(context) {
     const originalRenderPage = context.renderPage
-    const materialSheet = new MaterialSheet()
-    const styledSheet = new StyledSheet()
+    const sheets = new ServerStyleSheets()
 
     context.renderPage = () => originalRenderPage({
-      enhanceApp: App => props => materialSheet.collect(styledSheet.collectStyles(<App {...props} />))
+      enhanceApp: App => props => sheets.collect(<App {...props} />)
     })
 
     const initialProps = await NextDocument.getInitialProps(context)
 
+    const css = cleanCSS.minify(sheets.toString()).styles
+
     return {
       ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          <style
-            id="jss-server-side"
-            dangerouslySetInnerHTML={{ __html: materialSheet.toString().replace(/\n/g, "").replace(/ {2,}/g, "") }} />
-          {styledSheet.getStyleElement()}
-        </>
-      )
+      head: [<style key="jss-server-side" id="jss-server-side" dangerouslySetInnerHTML={{ __html: css }} />, ...Children.toArray(initialProps.head)]
     }
   }
 

@@ -4,14 +4,14 @@ import { useStore } from "hooks/store"
 
 export default function Notifications() {
   const [open, setOpen] = useState(false)
-  const [notifications, setNotifications] = useStore("notifications")
+  const [notifications, dispatchNotifications] = useStore("notifications")
 
   function handleClose() {
     setOpen(false)
   }
 
   function handleExited() {
-    setNotifications({ action: "shift" })
+    dispatchNotifications({ type: "shift" })
   }
 
   useEffect(() => {
