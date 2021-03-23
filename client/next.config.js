@@ -1,6 +1,7 @@
-const withPWA = require("next-offline")
+const withPWA = require('next-offline');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.NODE_ENV === 'production' });
 
-const VERSION = process.env.npm_package_version
+const VERSION = process.env.npm_package_version;
 
 const options = {
   env: { VERSION },
@@ -11,13 +12,13 @@ const options = {
     runtimeCaching: [
       {
         urlPattern: /^http/,
-        handler: "CacheFirst",
+        handler: 'CacheFirst',
         options: {
           cacheName: `cache-${VERSION}`,
-        }
-      }
-    ]
-  }
-}
+        },
+      },
+    ],
+  },
+};
 
-module.exports = withPWA(options)
+module.exports = withPWA(withBundleAnalyzer(options));

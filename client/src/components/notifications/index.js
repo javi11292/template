@@ -1,30 +1,42 @@
-import { useState, useEffect } from "react"
-import { Snackbar, SnackbarContent } from "@material-ui/core"
-import { useStore } from "hooks/store"
+import { MDCSnackbar, strings } from '@material/snackbar';
+import { useStore } from 'hooks/store';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Notifications() {
-  const [open, setOpen] = useState(false)
-  const [notifications, dispatchNotifications] = useStore("notifications")
-
-  function handleClose() {
-    setOpen(false)
-  }
-
-  function handleExited() {
-    dispatchNotifications({ type: "shift" })
-  }
+  const root = useRef(null);
+  const snackbar = useRef(null);
+  const [notification, setNotification] = useState(null);
+  const [notifications, dispatchNotifications] = useStore('notifications');
 
   useEffect(() => {
-    setOpen(notifications.length > 0)
-  }, [notifications])
+    function handleExited() {
+      dispatchNotifications({ type: 'shift' });
+    }
+
+    snackbar.current = new MDCSnackbar(root.current);
+    snackbar.current.timeoutMs = 4000;
+    snackbar.current.listen(strings.CLOSED_EVENT, handleExited);
+
+    return () => snackbar.current.destroy();
+  }, [dispatchNotifications]);
+
+  useEffect(() => {
+    setNotification(notifications[0] || null);
+  }, [notifications]);
+
+  useEffect(() => {
+    if (notification) {
+      snackbar.current.open();
+    }
+  }, [notification]);
 
   return (
-    <Snackbar
-      open={open}
-      onClose={handleClose}
-      onExited={handleExited}
-      autoHideDuration={2000}>
-      <SnackbarContent message={notifications[0]} />
-    </Snackbar>
-  )
+    <div ref={root} className="mdc-snackbar">
+      <div className="mdc-snackbar__surface">
+        <div className="mdc-snackbar__label">
+          {notification}
+        </div>
+      </div>
+    </div>
+  );
 }

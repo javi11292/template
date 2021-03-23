@@ -1,14 +1,14 @@
-require("dotenv").config()
-const cors = require("cors")
-const express = require("express")
-const http = require("http")
-const router = require("./router")
+require('dotenv').config();
+const cors = require('cors');
+const express = require('express');
+const http = require('http');
+const router = require('./router');
 
-const app = express()
+const app = express();
 
-app.use(cors({ origin: process.env.ORIGIN, credentials: true }))
-app.use(router)
+app.use(cors({ origin: process.env.ORIGIN, credentials: true }));
+app.use(router);
 
-http.createServer(app).listen(3000, () => console.log("HTTP server started"))
+http.createServer(app).listen(3000, () => console.log('HTTP server started'));
 
-process.on("SIGTERM", process.exit)
+process.on('SIGTERM', process.exit);
