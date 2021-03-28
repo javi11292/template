@@ -6,6 +6,7 @@ $background: #121212;
   $primary: $primary,
   $secondary: $secondary,
   $background: $background,
+  $surface: $background,
 );
 
 @use "@material/snackbar/mdc-snackbar";
