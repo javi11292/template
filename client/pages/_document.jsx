@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this */
-
 import NextDocument, {
   Head, Html, Main, NextScript,
 } from 'next/document';

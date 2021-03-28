@@ -14,19 +14,13 @@
   },
   "devDependencies": {
     "eslint": "^7.19.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-config-react-app": "^6.0.0",
+    "eslint-config-airbnb": "^18.2.0",
     "nodemon": "^2.0.0"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "airbnb-base"
-    ],
+    "extends": "airbnb",
     "rules": {
       "consistent-return": "off",
-      "import/no-extraneous-dependencies": "off",
-      "import/prefer-default-export": "off",
       "no-use-before-define": "off",
       "no-console": "off"
     }
