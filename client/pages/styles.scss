@@ -9,6 +9,7 @@ $background: #121212;
   $surface: $background,
 );
 
+@use "@material/typography/mdc-typography";
 @use "@material/snackbar/mdc-snackbar";
 
 body {
