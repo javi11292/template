@@ -1,14 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "noEmit": false,
-    "outDir": "lib",
-    "target": "es2020",
-    "lib": [
-      "es2020"
-    ],
+    "baseUrl": "src"
   },
   "include": [
     "src"

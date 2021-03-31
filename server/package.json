@@ -5,25 +5,30 @@
   "type": "module",
   "scripts": {
     "start": "npm run docker -- up --build",
-    "dev": "npm run docker -- -f docker-compose.development.yml up --build",
+    "start:dev": "npm run docker -- -f docker-compose.development.yml up --build",
+    "build": "npx babel src --out-dir lib",
+    "build:dev": "npx babel src --watch --out-dir lib",
     "docker": "docker-compose -f docker-compose.yml",
     "nodemon": "node scripts/nodemon"
   },
   "dependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.0",
+    "@babel/preset-env": "^7.13.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "cors": "^2.8.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.0",
-    "typescript": "^4.2.0"
+    "express": "^4.17.0"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^4.20.0",
+    "@babel/eslint-parser": "^7.13.0",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.0",
     "nodemon": "^2.0.0"
   },
   "eslintConfig": {
     "extends": "airbnb",
-    "parser": "@typescript-eslint/parser",
+    "parser": "@babel/eslint-parser",
     "rules": {
       "consistent-return": "off",
       "no-use-before-define": "off",
@@ -39,5 +44,27 @@
         }
       }
     }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "modules": false,
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": "src",
+          "stripExtensions": []
+        }
+      ]
+    ]
   }
 }
