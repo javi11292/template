@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "next start",
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^10.0.0",
@@ -18,19 +18,17 @@
     "sass": "^1.32.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.13.10",
+    "@babel/eslint-parser": "^7.13.0",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.0"
   },
   "eslintConfig": {
     "extends": "airbnb",
     "parser": "@babel/eslint-parser",
-    "env": {
-      "browser": true
-    },
     "rules": {
       "consistent-return": "off",
       "no-use-before-define": "off",
+      "import/no-extraneous-dependencies": "off",
       "import/prefer-default-export": "off",
       "react/jsx-filename-extension": "off",
       "react/jsx-props-no-spreading": "off",
@@ -43,6 +41,9 @@
           "paths": "src"
         }
       }
+    },
+    "env": {
+      "browser": true
     }
   },
   "babel": {

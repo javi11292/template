@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { MDCSnackbar, strings } from '@material/snackbar';
 import { useStore } from 'hooks/store';
 import { useEffect, useRef, useState } from 'react';
