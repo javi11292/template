@@ -8,7 +8,6 @@ export const useStore = getStore({
         return [...state, payload];
       },
       shift(state) {
-        state.shift();
         const [, ...newState] = state;
         return newState;
       },
