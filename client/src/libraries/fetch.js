@@ -11,7 +11,15 @@ async function parseResponse(response) {
 
 async function send(input, init) {
   const response = await fetch(input, init);
-  return parseResponse(response);
+  const parsedResponse = parseResponse(response);
+
+  if (!response.ok) {
+    const error = new Error();
+    error.response = parsedResponse;
+    throw error;
+  }
+
+  return parsedResponse;
 }
 
 export function get(path) {
