@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb",
+  "parser": "@babel/eslint-parser",
+  "rules": {
+    "consistent-return": "off",
+    "no-use-before-define": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "no-console": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": "src"
+      }
+    }
+  }
+}

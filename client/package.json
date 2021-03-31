@@ -22,31 +22,6 @@
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.0"
   },
-  "eslintConfig": {
-    "extends": "airbnb",
-    "parser": "@babel/eslint-parser",
-    "rules": {
-      "consistent-return": "off",
-      "no-use-before-define": "off",
-      "import/no-extraneous-dependencies": "off",
-      "import/prefer-default-export": "off",
-      "import/extensions": "off",
-      "react/jsx-filename-extension": "off",
-      "react/jsx-props-no-spreading": "off",
-      "react/prop-types": "off",
-      "react/react-in-jsx-scope": "off"
-    },
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "paths": "src"
-        }
-      }
-    },
-    "env": {
-      "browser": true
-    }
-  },
   "babel": {
     "presets": [
       "next/babel"
