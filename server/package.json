@@ -2,6 +2,7 @@
   "name": "server",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "npm run docker -- up --build",
     "dev": "npm run docker -- -f docker-compose.development.yml up --build",
@@ -28,6 +29,7 @@
       "no-use-before-define": "off",
       "import/no-extraneous-dependencies": "off",
       "import/prefer-default-export": "off",
+      "import/extensions": "off",
       "no-console": "off"
     },
     "settings": {

@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import http from 'http';
-import router from 'router';
+import router from 'router/index.js';
 
 const app = express();
 
