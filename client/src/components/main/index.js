@@ -8,14 +8,6 @@ export default function Main({ children }) {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       navigator.serviceWorker.register('/service-worker.js');
-      caches.keys().then((names) => {
-        names.forEach((name) => {
-          const match = /^cache-(.*)/.exec(name);
-          if (match && match[1] !== process.env.VERSION) {
-            caches.delete(name);
-          }
-        });
-      });
     }
   }, []);
 

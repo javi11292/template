@@ -11,3 +11,5 @@ services:
   nginx:
     volumes:
       - ./nginx.development.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80

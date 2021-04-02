@@ -12,10 +12,10 @@
     "eztore": "^6.0.0",
     "material-components-web": "^10.0.0",
     "next": "^10.0.0",
-    "next-offline": "^5.0.0",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "sass": "^1.32.0"
+    "sass": "^1.32.0",
+    "workbox-webpack-plugin": "^6.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.0",
