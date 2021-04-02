@@ -28,6 +28,7 @@ const options = {
     } else {
       config.plugins.push(new GenerateSW({
         additionalManifestEntries,
+        clientsClaim: true,
         inlineWorkboxRuntime: true,
         swDest: `${__dirname}/public/service-worker.js`,
         exclude: ['build-manifest.json', 'react-loadable-manifest.json'],
