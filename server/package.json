@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "npm run docker -- up --build",
+    "start": "npm run docker -- up --build -d",
     "start:dev": "npm run docker -- -f docker-compose.development.yml up --build",
     "build": "npx babel src --out-dir lib",
     "build:dev": "npx babel src --watch --out-dir lib",
