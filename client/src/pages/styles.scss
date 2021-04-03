@@ -1,6 +1,4 @@
-$primary: #bb86fc;
-$secondary: #03dac6;
-$background: #121212;
+@use "pages/variables" as *;
 
 @use "@material/theme" with (
   $primary: $primary,
