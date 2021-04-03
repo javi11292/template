@@ -1,8 +1,6 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.NODE_ENV === 'production' });
 const { GenerateSW } = require('workbox-webpack-plugin');
 
-const additionalManifestEntries = [];
-
 function createPlugin(revision) {
   return {
     async apply(compiler) {
@@ -19,7 +17,11 @@ function createPlugin(revision) {
   };
 }
 
+const VERSION = Date.now().toString();
+const additionalManifestEntries = [];
+
 const options = {
+  env: { VERSION },
   webpack(config, { isServer, buildId, dev }) {
     if (dev) return config;
 
@@ -47,6 +49,9 @@ const options = {
           {
             urlPattern: /^https/,
             handler: 'CacheFirst',
+            options: {
+              cacheName: `cache-${VERSION}`,
+            },
           },
         ],
       }));
