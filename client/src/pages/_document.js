@@ -1,5 +1,8 @@
 import NextDocument, {
-  Head, Html, Main, NextScript,
+  Head,
+  Html,
+  Main,
+  NextScript,
 } from 'next/document';
 
 export default class Document extends NextDocument {

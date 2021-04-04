@@ -1,6 +1,7 @@
 import { MDCSnackbar, strings } from '@material/snackbar';
-import { useStore } from 'hooks/store';
 import { useEffect, useRef, useState } from 'react';
+
+import { useStore } from 'hooks/store';
 
 export default function Notifications() {
   const root = useRef(null);

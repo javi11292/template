@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
+
 import styles from './index.module.scss';
 
 const Notifications = dynamic(() => import('components/notifications'));
