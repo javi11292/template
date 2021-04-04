@@ -2,9 +2,7 @@
 @use "pages/theme";
 
 @use "@material/typography";
-@use "@material/snackbar";
-
-@include snackbar.core-styles;
+@use "@material/snackbar/mdc-snackbar";
 
 body {
   margin: 0;
