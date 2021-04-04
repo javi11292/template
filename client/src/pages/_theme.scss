@@ -1,6 +1,6 @@
 @use "pages/variables" as *;
 
-@use "@material/theme" with (
+@forward "@material/theme" with (
   $primary: $primary,
   $secondary: $secondary,
   $background: $background,
