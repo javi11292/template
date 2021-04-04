@@ -1,12 +1,13 @@
 @use "pages/variables" as *;
 @use "pages/theme";
 
+@use "@material/theme/theme-color";
 @use "@material/typography";
 @use "@material/snackbar/mdc-snackbar";
 
 body {
   margin: 0;
   background: $background;
-  color: white;
+  color: map-get(theme-color.$property-values, text-primary-on-background);
   @include typography.base;
 }
