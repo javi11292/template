@@ -1,3 +1,6 @@
+@use "@material/theme/color-palette";
+
 $primary: #bb86fc !default;
 $secondary: #03dac6 !default;
 $background: #121212 !default;
+$surface: color-palette.$grey-900 !default;
