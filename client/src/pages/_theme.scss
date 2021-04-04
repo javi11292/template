@@ -6,12 +6,3 @@
   $background: $background,
   $surface: $background,
 );
-
-@use "@material/typography/mdc-typography";
-@use "@material/snackbar/mdc-snackbar";
-
-body {
-  margin: 0;
-  background: $background;
-  color: white;
-}

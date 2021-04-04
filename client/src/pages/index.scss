@@ -1,0 +1,14 @@
+@use "pages/variables" as *;
+@use "pages/theme";
+
+@use "@material/typography";
+@use "@material/snackbar";
+
+@include snackbar.core-styles;
+
+body {
+  margin: 0;
+  background: $background;
+  color: white;
+  @include typography.base;
+}
