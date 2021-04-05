@@ -1,4 +1,9 @@
-@use "pages/variables" as *;
+@use "@material/theme/color-palette";
+
+$background: black !default;
+$surface: color-palette.$grey-900 !default;
+$primary: color-palette.$blue-200 !default;
+$secondary: color-palette.$green-200 !default;
 
 @forward "@material/theme" with (
   $primary: $primary,

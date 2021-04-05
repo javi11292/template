@@ -2,7 +2,7 @@ import { getStore } from 'eztore';
 
 export const useStore = getStore({
   notifications: {
-    state: [],
+    state: ['hola'],
     reducers: {
       push(state, payload) {
         return [...state, payload];

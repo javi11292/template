@@ -1,10 +1,10 @@
 @use "pages/theme";
-
-@use "@material/typography/mdc-typography";
-@use "@material/snackbar/mdc-snackbar";
+@use "@material/typography";
 
 body {
   margin: 0;
   background: theme.$background;
   color: theme.$on-surface;
+
+  @include typography.base;
 }
