@@ -33,12 +33,14 @@ export default function Button({ children, anchor }) {
       tooltip.handleAnchorMouseLeave();
     }
 
+    const anchorElement = anchor.current;
+
     const tooltip = new MDCTooltipFoundation({
       addClass,
       removeClass,
       getTooltipSize,
-      getAnchorBoundingRect: () => anchor.current.getBoundingClientRect(),
-      getParentBoundingRect: () => anchor.current.parentElement.getBoundingClientRect(),
+      getAnchorBoundingRect: () => anchorElement.getBoundingClientRect(),
+      getParentBoundingRect: () => anchorElement.parentElement?.getBoundingClientRect(),
       getViewportHeight: () => window.innerHeight,
       getViewportWidth: () => window.innerWidth,
       setStyleProperty: setTooltipRootStyle,
@@ -52,12 +54,12 @@ export default function Button({ children, anchor }) {
     tooltip.init();
     tooltip.setTooltipPosition({ xPos: XPosition.CENTER, yPos: YPosition.ABOVE });
 
-    anchor.current.addEventListener('mouseenter', handleMouseEnter);
-    anchor.current.addEventListener('mouseleave', handleMouseLeave);
+    anchorElement.addEventListener('mouseenter', handleMouseEnter);
+    anchorElement.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      anchor.current.removeEventListener('mouseenter', handleMouseEnter);
-      anchor.current.removeEventListener('mouseleave', handleMouseLeave);
+      anchorElement.removeEventListener('mouseenter', handleMouseEnter);
+      anchorElement.removeEventListener('mouseleave', handleMouseLeave);
       tooltip.destroy();
     };
   }, []);
