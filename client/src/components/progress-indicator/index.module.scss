@@ -1,0 +1,32 @@
+.root {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  animation: rotate 1s linear;
+  animation-iteration-count: infinite;
+}
+
+.circle {
+  stroke: currentColor;
+  stroke-width: 10;
+  stroke-dasharray: 250;
+  stroke-dashoffset: -50;
+  stroke-linecap: round;
+  animation: shrink 2s linear;
+  animation-iteration-count: infinite;
+  fill: none;
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes shrink {
+  50% {
+    stroke-dashoffset: -240;
+  }
+}

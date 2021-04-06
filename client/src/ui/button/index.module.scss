@@ -1,0 +1,18 @@
+@use "pages/theme";
+@use "@material/button/mdc-button";
+@use "@material/icon-button/mdc-icon-button";
+
+.root[data-loading="true"] {
+  .mdc-button__label {
+    visibility: hidden;
+  }
+
+  .progress-indicator {
+    display: block;
+  }
+}
+
+.progress-indicator {
+  display: none;
+  height: 80%;
+}

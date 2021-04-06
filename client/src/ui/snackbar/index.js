@@ -1,37 +1,24 @@
 import { MDCSnackbarFoundation } from '@material/snackbar';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
+import { useClasses } from 'hooks/classes';
 import { classNames } from 'libraries/util';
 import styles from './index.module.scss';
 
-export default function Snackbar({ children, open, onExit = () => {} }) {
-  const root = useRef(null);
-  const snackbar = useRef(null);
-  const [classes, setClasses] = useState(new Set());
-
-  function addClass(className) {
-    setClasses((state) => {
-      const newClassName = styles[className];
-      if (state.has(newClassName)) return state;
-      const newClasses = new Set(state);
-      newClasses.add(newClassName);
-      return newClasses;
-    });
-  }
-
-  function removeClass(className) {
-    setClasses((state) => {
-      const newClassName = styles[className];
-      if (!state.has(newClassName)) return state;
-      const newClasses = new Set(state);
-      newClasses.delete(newClassName);
-      return newClasses;
-    });
-  }
+export default function Snackbar({
+  styles: additionalStyles = {},
+  style,
+  children,
+  open,
+  onExit = () => {},
+}) {
+  const snackbar = useRef();
+  const { classes, addClass, removeClass } = useClasses(styles);
 
   useEffect(() => {
     snackbar.current = new MDCSnackbarFoundation({ addClass, removeClass, notifyClosed: onExit });
 
+    snackbar.current.init();
     snackbar.current.setTimeoutMs(4000);
 
     return () => snackbar.current.destroy();
@@ -44,9 +31,9 @@ export default function Snackbar({ children, open, onExit = () => {} }) {
   }, [open]);
 
   return (
-    <div ref={root} className={classNames(styles['mdc-snackbar'], ...classes)}>
-      <div className={styles['mdc-snackbar__surface']}>
-        <div className={styles['mdc-snackbar__label']}>
+    <div style={style} className={classNames(styles['mdc-snackbar'], additionalStyles['mdc-snackbar'], ...classes)}>
+      <div className={classNames(styles['mdc-snackbar__surface'], additionalStyles['mdc-snackbar__surface'])}>
+        <div className={classNames(styles['mdc-snackbar__label'], additionalStyles['mdc-snackbar__label'])}>
           {children}
         </div>
       </div>

@@ -1,0 +1,8 @@
+@use "pages/theme";
+@use "@material/top-app-bar";
+@use "@material/top-app-bar/mdc-top-app-bar";
+
+.root {
+  @include top-app-bar.fill-color(theme.$surface);
+  @include top-app-bar.ink-color(theme.$on-surface);
+}
