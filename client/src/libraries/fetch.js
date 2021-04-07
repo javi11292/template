@@ -9,8 +9,8 @@ async function parseResponse(response) {
   }
 }
 
-async function send(input, init) {
-  const response = await fetch(input, init);
+async function send(path, init) {
+  const response = await fetch(path, init);
   const parsedResponse = parseResponse(response);
 
   if (!response.ok) {
