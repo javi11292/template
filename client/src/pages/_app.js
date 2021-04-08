@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import './index.scss';
+import './app.scss';
 import Main from 'components/main';
 
 export default function App({ Component, pageProps }) {
