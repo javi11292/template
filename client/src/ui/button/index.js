@@ -32,9 +32,9 @@ export default function Button({
 }) {
   const button = useRef();
 
-  function handleClick({ currentTarget }) {
-    currentTarget.blur();
-    if (onClick) onClick();
+  function handleClick(event) {
+    event.currentTarget.blur();
+    if (onClick) onClick(event);
   }
 
   return (
