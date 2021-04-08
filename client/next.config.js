@@ -8,7 +8,7 @@ function createPlugin(revision) {
         const paths = Object.keys(JSON.parse(compilation.assets['pages-manifest.json'].source()));
 
         paths.forEach((url) => {
-          if (!url.match(/^\/_/)) {
+          if (!url.match(/^\/_/) && !url.match(/[[\]]/)) {
             additionalManifestEntries.push({ url, revision });
           }
         });
@@ -17,11 +17,9 @@ function createPlugin(revision) {
   };
 }
 
-const VERSION = Date.now().toString();
 const additionalManifestEntries = [];
 
 const options = {
-  env: { VERSION },
   webpack(config, { isServer, buildId, dev }) {
     if (dev) return config;
 
@@ -37,23 +35,6 @@ const options = {
         modifyURLPrefix: {
           static: '_next/static',
         },
-        runtimeCaching: [
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com/,
-            handler: 'StaleWhileRevalidate',
-          },
-          {
-            urlPattern: new RegExp(`^${process.env.NEXT_PUBLIC_HOST}`),
-            handler: 'NetworkFirst',
-          },
-          {
-            urlPattern: /^https/,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: `cache-${VERSION}`,
-            },
-          },
-        ],
       }));
     }
 
