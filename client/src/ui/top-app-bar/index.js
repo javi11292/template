@@ -49,7 +49,7 @@ export default function TopAppBar({ children, buttons, title }) {
           </section>
         </div>
       </header>
-      <main className={styles['mdc-top-app-bar--dense-fixed-adjust']}>
+      <main className={classNames(styles['mdc-top-app-bar--dense-fixed-adjust'], styles.main)}>
         {children}
       </main>
     </>

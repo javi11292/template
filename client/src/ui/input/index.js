@@ -16,10 +16,9 @@ export default function Input({
   label,
   autoFocus,
   value = '',
-  onChange,
   type = 'text',
   inputRef,
-  onKeyDown,
+  ...props
 }) {
   const root = useRef();
   const labelRef = useRef();
@@ -69,9 +68,8 @@ export default function Input({
       <span className={styles['mdc-text-field__ripple']} />
       <Label labelRef={labelRef}>{label}</Label>
       <input
+        {...props}
         ref={addRef}
-        onKeyDown={onKeyDown}
-        onChange={onChange}
         value={value}
         className={styles['mdc-text-field__input']}
         type={type}
